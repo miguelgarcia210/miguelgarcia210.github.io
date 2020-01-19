@@ -10,11 +10,7 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 48px auto 1fr;
-    padding:
-            env(safe-area-inset-top, 20px)
-            env(safe-area-inset-right, 5px)
-            env(safe-area-inset-bottom, 20px)
-            env(safe-area-inset-left, 5px);
+    padding: env(safe-area-inset-top, 20px) env(safe-area-inset-right, 5px) env(safe-area-inset-bottom, 20px) env(safe-area-inset-left, 5px);
 }
 
 /* === HEADER === */
@@ -330,6 +326,7 @@ main {
 .active:nth-child(1) {
     display: block;
 }
+
 /*.pillar-icon img.active {*/
 /*    display: block;*/
 /*}*/
@@ -339,7 +336,7 @@ main {
         transform: translate3d(0, -8em, 0);
 
     }
-    0%, 40%{
+    0%, 40% {
         transform: translate3d(0, 0, 0);
     }
 }
