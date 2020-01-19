@@ -12,9 +12,9 @@ body {
     grid-template-rows: 48px auto 1fr;
     padding:
             env(safe-area-inset-top, 20px)
-            env(safe-area-inset-right, 20px)
+            env(safe-area-inset-right, 5px)
             env(safe-area-inset-bottom, 20px)
-            env(safe-area-inset-left, 20px);
+            env(safe-area-inset-left, 5px);
 }
 
 /* === HEADER === */
