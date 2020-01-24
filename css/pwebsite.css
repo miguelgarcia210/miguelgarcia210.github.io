@@ -130,8 +130,8 @@ main {
 .card {
     border-radius: 1em;
     width: 95%;
-    min-height: 10em;
-    margin: 0 auto;
+    min-height: 4em;
+    margin: 0 auto 1em;
     padding: 0 1.5em;
     /*border: 1px solid red;*/
     /*background: lightgray;*/
@@ -395,6 +395,14 @@ main {
     scroll-snap-align: center;
 }
 
+.project-card:first-child {
+    margin-left: 2.5%;
+}
+
+.project-card:nth-last-child(n+2) {
+    margin-right: 3px;
+}
+
 .project-image {
     grid-area: 1 / 1 / 2 / 2;
     max-width: 100%;
@@ -425,15 +433,21 @@ main {
     font-size: 11pt;
 }
 
-.project-card:nth-last-child(n+2) {
-    margin-right: 3px;
-}
-
 /* --- SKILLS & TOOLS SECTION --- */
 .home-skills {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.skills-card {
+    border-radius: 1em;
+    width: 95%;
+    min-height: 10em;
+    margin: 0 auto;
+    padding: 0 1.5em;
+    /*border: 1px solid red;*/
+    /*background: lightgray;*/
 }
 
 .language-logo {
@@ -596,15 +610,174 @@ footer h3 {
     color: #E1236E;
 }
 
+/*X-Small devices (landscape phones, 567px and up)*/
+@media (min-width: 567px) {
+    /* --- PORTFOLIO SECTION --- */
+
+    /*.home-portfolio {*/
+    /*    display: flex;*/
+    /*    flex-direction: column;*/
+    /*    align-items: center;*/
+    /*}*/
+
+    /*.portfolio-container {*/
+    /*    width: 95%;*/
+    /*    height: auto;*/
+    /*    display: grid;*/
+    /*    padding: 0 1.5em;*/
+    /*    margin-top: 1em;*/
+    /*}*/
+
+    /*.portfolio-projects {*/
+    /*    display: flex;*/
+    /*    flex-wrap: nowrap;*/
+    /*    overflow-x: auto;*/
+    /*    scroll-snap-type: x mandatory;*/
+    /*    -webkit-overflow-scrolling: touch;*/
+    /*    scroll-padding: 1em;*/
+    /*    padding-bottom: 1em;*/
+    /*    height: auto;*/
+    /*}*/
+
+    /*!* --- remove scroll bar display ONLY for forecast-container --- *!*/
+    /*.portfolio-projects::-webkit-scrollbar {*/
+    /*    display: none;*/
+    /*}*/
+
+    .project-card {
+        /*display: grid;*/
+        grid-template-columns: 2fr 3fr;
+        /*grid-auto-rows: max-content max-content auto;*/
+        /*padding: 0.5em;*/
+        /*align-items: center;*/
+        min-height: auto;
+        /*width: 95%;*/
+        /*border: 1px solid black;*/
+        /*background-color: #F5F5F5;*/
+        /*border-radius: 1em;*/
+        /*box-shadow: 0 12px 4px -6px grey;*/
+        /* scrollable settings*/
+        /*flex: 0 0 auto;*/
+        /*scroll-snap-align: center;*/
+    }
+
+    .project-image {
+        grid-area: 2 / 1 / 3 / 2;
+        /*max-width: 100%;*/
+        max-width: 16em;
+        /*height: auto;*/
+        justify-self: center;
+    }
+
+    .project-title {
+        grid-area: 1 / 1 / 2 / 3;
+        /*text-align: center;*/
+        margin: 0;
+        /*height: auto;*/
+        align-self: center;
+    }
+
+    .project-description {
+        grid-area: 2 / 2 / 3 / 3;
+        /*padding: 0.5em;*/
+        /*font-size: 10pt;*/
+        /*margin: 0;*/
+        /*height: 8em;*/
+        /*width: 100%;*/
+        /*text-align: center;*/
+        /*overflow-y: scroll;*/
+    }
+
+    /*.view-more-excerpt {*/
+    /*    font-style: italic;*/
+    /*    font-size: 11pt;*/
+    /*}*/
+
+
+    /*.project-card:nth-last-child(n+2) {*/
+    /*    margin-right: 3px;*/
+    /*}*/
+
+    /* --- SKILLS & TOOLS SECTION --- */
+    .home-skills {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        align-items: flex-start;
+    }
+
+    .skills-title {
+        grid-area: 1 / 1 / 2 / 3;
+    }
+
+    .tools-title {
+        grid-area: 1 / 3 / 2 / 5;
+    }
+
+    .skills-card {
+        width: auto;
+    }
+
+    .card-content {
+        padding: 1em;
+        width: auto;
+    }
+
+    .skills-card:nth-child(2) {
+        grid-area: 2 / 1 / 3 / 3;
+    }
+
+    .skills-card:nth-child(4) {
+        grid-area: 2 / 3 / 3 / 5;
+    }
+
+    .language-list {
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 1em;
+    }
+
+    .home-skills > .traverse-container {
+        display: flex;
+        justify-content: center;
+        grid-area: 3 / 2 / 4 / 4;
+    }
+}
+
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
+    /* --- SKILLS & TOOLS SECTION --- */
+    .language-list {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
 
 /*Medium devices (tablets, 768px and up)*/
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+    .project-image {
+        max-width: 100%;
+    }
+}
 
 /*Large devices (desktops, 992px and up)*/
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+    .card {
+        width: 50em;
+    }
+
+    .about-intro-p {
+        font-size: 12pt;
+    }
+
+    .home-skills {
+        margin: 0 auto;
+        width: calc(100vw - 25%);
+    }
+
+    .home-portfolio {
+        margin: 0 auto;
+        width: calc(100vw - 25%);
+    }
+}
 
 /*Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {}
