@@ -754,12 +754,17 @@ footer h3 {
 /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
     .project-image {
-        max-width: 100%;
+        /*max-width: 100%;*/
+        max-width: 20em;
     }
 }
 
 /*Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {
+    .project-image {
+        max-width: 100%;
+    }
+
     .card {
         width: 50em;
     }
