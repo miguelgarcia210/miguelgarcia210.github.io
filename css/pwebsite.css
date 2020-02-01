@@ -13,100 +13,224 @@ body {
 }
 
 /* === HEADER === */
-.header-style {
-    height: 48px;
-    /*background-color: #323232;*/
-    background-color: rgba(45, 45, 45, 0.98);
-    display: flex;
-    align-items: center;
-    position: fixed;
-    z-index: 2;
-    width: 100%;
-    border-bottom: 3px solid #04C2C9;
-}
+/*.header-style {*/
+/*    height: 48px;*/
+/*    background-color: #323232;*/
+/*    background-color: rgba(45, 45, 45, 0.98);*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    position: fixed;*/
+/*    z-index: 2;*/
+/*    width: 100%;*/
+/*    border-bottom: 3px solid #04C2C9;*/
+/*}*/
 
-/* --- NAV LIST --- */
-.nav-list {
-    list-style: none;
-    height: 48px;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+/*!* --- NAV LIST --- *!*/
+/*.nav-list {*/
+/*    list-style: none;*/
+/*    height: 48px;*/
+/*    display: flex;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    width: 100%;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*}*/
+
+/*!* --- NAV MENU ICON --- *!*/
+/*.menu-icon {*/
+/*    position: absolute;*/
+/*    height: 48px;*/
+/*    width: 48px;*/
+/*    z-index: 2;*/
+/*    !*border: 1px solid red;*!*/
+/*    left: 0;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+
+/*    !* Apple device safe area adjustments *!*/
+/*    !* TODO: Set fixed padding as fallback to safe-area's*/
+/*        setting is meant for iOS 10*!*/
+/*    padding-right: constant(safe-area-inset-right); !* Status bar height on iOS 11.0 *!*/
+/*    padding-left: constant(safe-area-inset-right);*/
+/*    padding-right: env(safe-area-inset-right); !* Status bar height on iOS 11+ *!*/
+/*    padding-left: env(safe-area-inset-left);*/
+/*}*/
+
+/*.menu-icon-container {*/
+/*    position: absolute;*/
+/*    z-index: 3;*/
+/*    height: 30px;*/
+/*    width: 30px;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*}*/
+
+/*.menu-icon-bread-crust {*/
+/*    display: block;*/
+/*    position: absolute;*/
+/*    width: 17px;*/
+/*    height: 1px;*/
+/*    border-radius: 0.5px;*/
+/*    background: #ffffff;*/
+/*    z-index: 1;*/
+/*}*/
+
+/*.menu-icon-bread-top {*/
+/*    top: 10px;*/
+/*}*/
+
+/*.menu-icon-bread-bottom {*/
+/*    bottom: 10px;*/
+/*}*/
+
+/*!*.menu-icon-bread-crust-top {*!*/
+/*!*    top: 14px;*!*/
+/*!*    transition: transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s, -webkit-transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;*!*/
+/*!*}*!*/
+
+/*!*.menu-icon-bread-crust-bottom {*!*/
+/*!*    bottom: 14px;*!*/
+/*!*    transition: transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s, -webkit-transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;*!*/
+/*!*}*!*/
+
+/*!* --- NAV LOGO --- *!*/
+/*.menu-logo-container {*/
+/*    !*position: absolute;*!*/
+/*    width: 40px;*/
+/*    height: 40px;*/
+/*}*/
+
+/*.menu-logo {*/
+/*    !*height: inherit;*!*/
+/*    !*width: inherit;*!*/
+/*}*/
+header {
+    font-size: 10px;
     position: fixed;
     top: 0;
+    width: 100%;
+    z-index: 1400;
+    height: 4.8em;
+    background-color: rgba(0, 0, 0, .8);
+    backdrop-filter: blur(2em);
+    transition: background .36s cubic-bezier(0.32, 0.08, 0.24, 1), height .56s cubic-bezier(0.32, 0.08, 0.24, 1);
 }
 
-/* --- NAV MENU ICON --- */
-.menu-icon {
-    position: absolute;
-    height: 48px;
-    width: 48px;
-    z-index: 2;
-    /*border: 1px solid red;*/
-    left: 0;
+header a {
+    text-decoration: none;
+    display: block;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    /*background-color: #8F9AA7;*/
+    background-color: rgba(45, 45, 45, 0.98);
+
+    border-bottom: 3px solid #04C2C9;
+
+}
+
+.nav-link {
+    font-size: 1.4em;
+    color: #ffffff;
+    padding: 0 1em;
+    transition: opacity .5s;
+}
+
+.nav-link-logo {
+    width: 4em;
+    height: 4em;
+}
+
+.d-nav-list {
+    display: none;
+}
+
+.d-nav-list {
+    /*display: flex;*/
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+.nav-list.d-nav-list {
+    padding: 1em 4em 1em;
+}
+
+.d-nav-list .nav-item {
+    width: 100%;
+    justify-content: left;
+    border-bottom: 1px solid #04C2C9;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* Apple device safe area adjustments */
-    /* TODO: Set fixed padding as fallback to safe-area's
-        setting is meant for iOS 10*/
-    padding-right: constant(safe-area-inset-right); /* Status bar height on iOS 11.0 */
-    padding-left: constant(safe-area-inset-right);
-    padding-right: env(safe-area-inset-right); /* Status bar height on iOS 11+ */
-    padding-left: env(safe-area-inset-left);
+    height: 4.8em;
+    width: 4.8em;
 }
 
-.menu-icon-container {
-    position: absolute;
-    z-index: 3;
-    height: 30px;
-    width: 30px;
+.nav-item-hidden {
+    display: none;
+}
+
+.m-nav-list {
+    background-color: #8F9AA7;
+}
+
+/* ===== MENU ===== */
+.m-menu {
+    position: relative;
+    z-index: 1500;
+    width: 100%;
+    height: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
-.menu-icon-bread-crust {
-    display: block;
+.line {
     position: absolute;
-    width: 17px;
+    width: 1.7em;
     height: 1px;
-    border-radius: 0.5px;
-    background: #ffffff;
-    z-index: 1;
+    background-color: #ffffff;
+    transition: margin-top .3192s cubic-bezier(0.04, 0.04, 0.12, 0.96);
 }
 
-.menu-icon-bread-top {
-    top: 10px;
+.line-top {
+    margin-top: 3px;
 }
 
-.menu-icon-bread-bottom {
-    bottom: 10px;
+.line-bottom {
+    margin-top: -4px;
 }
 
-/*.menu-icon-bread-crust-top {*/
-/*    top: 14px;*/
-/*    transition: transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s, -webkit-transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;*/
-/*}*/
-
-/*.menu-icon-bread-crust-bottom {*/
-/*    bottom: 14px;*/
-/*    transition: transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s, -webkit-transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;*/
-/*}*/
-
-/* --- NAV LOGO --- */
-.menu-logo-container {
-    /*position: absolute;*/
-    width: 40px;
-    height: 40px;
+.active .line-top {
+    margin-top: 0;
+    transform: rotate(45deg);
+    transition: transform .3192s .1s cubic-bezier(0.04, 0.04, 0.12, 0.96);
 }
 
-.menu-logo {
-    /*height: inherit;*/
-    /*width: inherit;*/
+.active .line-bottom {
+    margin-top: 0;
+    transform: rotate(-45deg);
+    transition: transform .3192s .1s cubic-bezier(0.04, 0.04, 0.12, 0.96);
 }
 
 /* === MAIN === */
@@ -690,6 +814,32 @@ footer h3 {
 
 /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
+    /* ===== NAVIGATION BAR ===== */
+    .m-nav-list {
+        display: none;
+    }
+
+    .nav-item-hidden {
+        display: inherit;
+    }
+
+    .d-nav-list {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: space-around;
+        height: auto;
+    }
+
+    .d-nav-list .nav-item {
+        width: auto;
+        justify-content: center;
+        border-bottom: none;
+    }
+
+    .nav-list.d-nav-list {
+        padding: 0;
+    }
+
     /* --- PORTFOLIO SECTION --- */
     .project-image {
         max-width: 20em;
@@ -734,4 +884,5 @@ footer h3 {
 }
 
 /*Extra large devices (large desktops, 1200px and up)*/
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+}
