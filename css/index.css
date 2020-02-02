@@ -12,185 +12,25 @@ body {
     grid-template-rows: 48px auto 1fr;
 }
 
-/* === HEADER === */
-/*.header-style {*/
-/*    height: 48px;*/
-/*    background-color: #323232;*/
-/*    background-color: rgba(45, 45, 45, 0.98);*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    position: fixed;*/
-/*    z-index: 2;*/
-/*    width: 100%;*/
-/*    border-bottom: 3px solid #04C2C9;*/
-/*}*/
+a:link {
+    color: #0066CC;
+    letter-spacing: inherit;
+    text-decoration: none;
+}
 
-/*!* --- NAV LIST --- *!*/
-/*.nav-list {*/
-/*    list-style: none;*/
-/*    height: 48px;*/
-/*    display: flex;*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*    width: 100%;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    position: fixed;*/
-/*    top: 0;*/
-/*}*/
+a:-webkit-any-link {
+    cursor: pointer;
+}
 
-/*!* --- NAV MENU ICON --- *!*/
-/*.menu-icon {*/
-/*    position: absolute;*/
-/*    height: 48px;*/
-/*    width: 48px;*/
-/*    z-index: 2;*/
-/*    !*border: 1px solid red;*!*/
-/*    left: 0;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-
+/*
 /*    !* Apple device safe area adjustments *!*/
 /*    !* TODO: Set fixed padding as fallback to safe-area's*/
 /*        setting is meant for iOS 10*!*/
 /*    padding-right: constant(safe-area-inset-right); !* Status bar height on iOS 11.0 *!*/
 /*    padding-left: constant(safe-area-inset-right);*/
 /*    padding-right: env(safe-area-inset-right); !* Status bar height on iOS 11+ *!*/
-/*    padding-left: env(safe-area-inset-left);*/
-/*}*/
-
-/*.menu-icon-container {*/
-/*    position: absolute;*/
-/*    z-index: 3;*/
-/*    height: 30px;*/
-/*    width: 30px;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*}*/
-
-/*.menu-icon-bread-crust {*/
-/*    display: block;*/
-/*    position: absolute;*/
-/*    width: 17px;*/
-/*    height: 1px;*/
-/*    border-radius: 0.5px;*/
-/*    background: #ffffff;*/
-/*    z-index: 1;*/
-/*}*/
-
-/*.menu-icon-bread-top {*/
-/*    top: 10px;*/
-/*}*/
-
-/*.menu-icon-bread-bottom {*/
-/*    bottom: 10px;*/
-/*}*/
-
-/*!*.menu-icon-bread-crust-top {*!*/
-/*!*    top: 14px;*!*/
-/*!*    transition: transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s, -webkit-transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;*!*/
-/*!*}*!*/
-
-/*!*.menu-icon-bread-crust-bottom {*!*/
-/*!*    bottom: 14px;*!*/
-/*!*    transition: transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s, -webkit-transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;*!*/
-/*!*}*!*/
-
-/*!* --- NAV LOGO --- *!*/
-/*.menu-logo-container {*/
-/*    !*position: absolute;*!*/
-/*    width: 40px;*/
-/*    height: 40px;*/
-/*}*/
-
-/*.menu-logo {*/
-/*    !*height: inherit;*!*/
-/*    !*width: inherit;*!*/
-/*}*/
-header {
-    font-size: 10px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1400;
-    height: 4.8em;
-    background-color: rgba(0, 0, 0, .8);
-    backdrop-filter: blur(2em);
-    transition: background .36s cubic-bezier(0.32, 0.08, 0.24, 1), height .56s cubic-bezier(0.32, 0.08, 0.24, 1);
-}
-
-header a {
-    text-decoration: none;
-    display: block;
-}
-
-.container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0;
-    /*background-color: #8F9AA7;*/
-    background-color: rgba(45, 45, 45, 0.98);
-
-    border-bottom: 3px solid #04C2C9;
-
-}
-
-.nav-link {
-    font-size: 1.4em;
-    color: #ffffff;
-    padding: 0 1em;
-    transition: opacity .5s;
-}
-
-.nav-link-logo {
-    width: 4em;
-    height: 4em;
-}
-
-.d-nav-list {
-    display: none;
-}
-
-.d-nav-list {
-    /*display: flex;*/
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: 100vh;
-}
-
-.nav-list.d-nav-list {
-    padding: 1em 4em 1em;
-}
-
-.d-nav-list .nav-item {
-    width: 100%;
-    justify-content: left;
-    border-bottom: 1px solid #04C2C9;
-}
-
-.nav-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 4.8em;
-    width: 4.8em;
-}
-
-.nav-item-hidden {
-    display: none;
-}
-
-.m-nav-list {
-    background-color: #8F9AA7;
-}
+/*    padding-left: env(safe-area-inset-left);
+ */
 
 /* ===== MENU ===== */
 .m-menu {
@@ -243,6 +83,14 @@ main {
     margin-bottom: 0;
     border-bottom: 2px solid #04C2C9;
     border-radius: 2px;
+    /* ALLOWS ANCHOR TAGS TO TITLES TO ACCOUNT FOR THE NAVIGATION BAR */
+    /*
+    Navigational bar is is 51px in height.
+    Set top padding to 51px to account for the anchor tag call.
+    Counter the top padding with -51px. But also keep default top margin maintain original vision.
+    */
+    margin-top: calc(0.83em - 51px);
+    padding-top: 51px;
 }
 
 .content-title {
@@ -330,12 +178,12 @@ main {
 }
 
 .home-splash-button {
-    border: 2px solid #ffffff;
+    border: 2px solid #FFFFFF;
     border-radius: 25px;
     font-size: 13pt;
     text-align: center;
     padding: 12px 15px 12px 15px;
-    color: #ffffff;
+    color: #FFFFFF;
     z-index: 1;
 }
 
@@ -655,86 +503,6 @@ img[alt="git logo"] {
     color: #FFFFFF;
 }
 
-/* === FOOTER === */
-footer {
-    grid-area: 3 / 1 / 4 / 2;
-    background: #252934;
-    min-height: 150px;
-    display: grid;
-    grid-template-columns: 1fr 2fr 2fr 1fr;
-    grid-template-rows: auto;
-}
-
-footer h3 {
-    margin-bottom: 0;
-}
-
-.footer-menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #ffffff;
-    grid-area: 1 / 2 / 2 / 3;
-}
-
-.f-menu-list {
-    list-style: none;
-    padding: 0;
-    line-height: 16pt;
-}
-
-.footer-network {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #ffffff;
-    grid-area: 1 / 3 / 2 / 4;
-
-}
-
-.f-network-list {
-    list-style: none;
-    padding: 0;
-    line-height: 16pt;
-}
-
-.f-title {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.f-content-title {
-    border-bottom: 2px solid #04C2C9;
-    border-radius: 2px;
-}
-
-/*.f-checkpoint-bar {*/
-/*    height: 2px;*/
-/*    width: 50px;*/
-/*    background: #04C2C9;*/
-/*    border-radius: 25px;*/
-/*    margin-left: 25%;*/
-/*    margin-right: 25%;*/
-/*    margin-top: 2px;*/
-/*}*/
-
-/* --- COPYRIGHT --- */
-
-.footer-copyright {
-    grid-area: 2 / 2 / 3 / 4;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 300;
-    font-size: 10pt;
-    color: #8F9AA7;
-    text-align: center;
-}
-
-.f-copyright-stamp {
-    color: #E1236E;
-}
-
 /*X-Small devices (landscape phones, 567px and up)*/
 @media (min-width: 567px) {
     /* --- PORTFOLIO SECTION --- */
@@ -813,42 +581,7 @@ footer h3 {
 }
 
 /*Medium devices (tablets, 768px and up)*/
-@media (min-width: 768px) {
-    /* ===== NAVIGATION BAR ===== */
-    .m-nav-list {
-        display: none;
-    }
-
-    .nav-item-hidden {
-        display: inherit;
-    }
-
-    .d-nav-list {
-        display: flex !important;
-        flex-direction: row;
-        justify-content: space-around;
-        height: auto;
-    }
-
-    .d-nav-list .nav-item {
-        width: auto;
-        justify-content: center;
-        border-bottom: none;
-    }
-
-    .nav-list.d-nav-list {
-        padding: 0;
-    }
-
-    /* --- PORTFOLIO SECTION --- */
-    .project-image {
-        max-width: 20em;
-    }
-
-    .project-description {
-        font-size: 12pt;
-    }
-}
+@media (min-width: 768px) {}
 
 /*Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {

@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFFFFF;
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    font-size: 8pt;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 48px auto 1fr;
+}
+
+a:link {
+    color: #0066CC;
+    letter-spacing: inherit;
+    text-decoration: none;
+}
+
+a:-webkit-any-link {
+    cursor: pointer;
+}
+
+/*
+/*    !* Apple device safe area adjustments *!*/
+/*    !* TODO: Set fixed padding as fallback to safe-area's*/
+/*        setting is meant for iOS 10*!*/
+/*    padding-right: constant(safe-area-inset-right); !* Status bar height on iOS 11.0 *!*/
+/*    padding-left: constant(safe-area-inset-right);*/
+/*    padding-right: env(safe-area-inset-right); !* Status bar height on iOS 11+ *!*/
+/*    padding-left: env(safe-area-inset-left);
+ */

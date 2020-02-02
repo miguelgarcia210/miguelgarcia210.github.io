@@ -6,24 +6,12 @@
     <title>Miguel Garcia</title>
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" href="css/pwebsite.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
 
-<!--<header class="header-style">-->
-<!--    <ul id="nav" class="nav-list">-->
-<!--        <li id="menu-icon" class="menu-icon">-->
-<!--            <div class="menu-icon-container">-->
-<!--                <span class="menu-icon-bread-crust menu-icon-bread-top"></span>-->
-<!--                <span class="menu-icon-bread-crust menu-icon-bread-bottom"></span>-->
-<!--            </div>-->
-<!--        </li>-->
-<!--        <li class="menu-logo-container">-->
-<!--            &lt;!&ndash;            <img src="../img/pwebsite/rocketLogo1.png" alt="rocket-logo" id="nav-logo">&ndash;&gt;-->
-<!--            <img src="images/spaceship2-logo.svg" alt="rocket-logo" id="nav-logo" class="menu-logo">-->
-<!--        </li>-->
-<!--    </ul>-->
-<!--</header>-->
 <header class="header">
     <div class="container" id="container">
         <nav>
@@ -34,25 +22,30 @@
                         <span class="line line-bottom"></span>
                     </div>
                 </li>
+                <li class="nav-item m-logo">
+                    <a href="index.html" class="nav-link">
+                        <img src="images/mgCircleLogo.png" alt="website logo" class="nav-link-logo">
+                    </a>
+                </li>
             </ul>
 
             <ul class="nav-list d-nav-list">
                 <li class="nav-item nav-item-hidden">
-                    <a href="index.html">
-                        <img src="images/spaceship2-logo.svg" alt="website logo" class="nav-link-logo">
+                    <a href="index.html" class="nav-link">
+                        <img src="images/mgCircleLogo.png" alt="website logo" class="nav-link-logo">
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">About</a>
+                    <a href="about.html" class="nav-link">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Portfolio</a>
+                    <a href="portfolio.html" class="nav-link">Portfolio</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Skills & Tools</a>
+                    <a href="skillsTools.html" class="nav-link">Skills & Tools</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Contact</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
                 </li>
             </ul>
         </nav>
@@ -64,9 +57,12 @@
         <p class="home-splash-intro">
             Hello, I'm <span class="dev-name">Miguel Garcia</span>. <br>I'm a software developer.
         </p>
-        <div class="home-splash-button">
-            View my work
-        </div>
+<!--        <a href="portfolio.html">-->
+        <a href="#portfolio-id">
+            <div class="home-splash-button">
+                View my work
+            </div>
+        </a>
     </section>
     <section class="home-about">
         <div class="content-title">
@@ -118,14 +114,16 @@
             </div>
         </div>
         <div class="traverse-container">
-            <button class="traverse-btn">
-                Learn More
-            </button>
+            <a href="about.html">
+                <button class="traverse-btn">
+                    Learn More
+                </button>
+            </a>
         </div>
     </section>
     <section class="home-portfolio">
         <div class="content-title">
-            <h1>Portfolio</h1>
+            <h1 id="portfolio-id">Portfolio</h1>
         </div>
         <section class="portfolio-container">
             <div class="portfolio-projects">
@@ -175,9 +173,11 @@
             </div>
         </section>
         <div class="traverse-container">
-            <button class="traverse-btn">
-                View More
-            </button>
+            <a href="portfolio.html">
+                <button class="traverse-btn">
+                    View More
+                </button>
+            </a>
         </div>
     </section>
     <section class="home-skills">
@@ -252,9 +252,11 @@
             </div>
         </div>
         <div class="traverse-container">
-            <button class="traverse-btn">
-                View More
-            </button>
+            <a href="skillsTools.html">
+                <button class="traverse-btn">
+                    View More
+                </button>
+            </a>
         </div>
     </section>
     <div class="separator-container">
@@ -285,28 +287,28 @@
     <div class="footer-menu">
         <div class="f-title">
             <h3 class="f-content-title">Menu</h3>
-            <span class="f-checkpoint-bar"></span>
         </div>
         <ul class="f-menu-list">
-            <li>About</li>
-            <li>Portfolio</li>
+            <li><a href="about.html"><span class="f-nav-link">About</span></a></li>
+            <li><a href="portfolio.html"><span class="f-nav-link">Portfolio</span></a></li>
+            <li><a href="skillsTools.html"><span class="f-nav-link">Skills & Tools</span></a></li>
         </ul>
     </div>
     <div class="footer-network">
         <div class="f-title">
             <h3 class="f-content-title">Network</h3>
-            <span class="f-checkpoint-bar"></span>
         </div>
         <ul class="f-network-list">
-            <li>GitHub</li>
-            <li>LinkedIn</li>
-            <li>E-mail</li>
+            <li><a href="https://github.com/miguelgarcia210"><span class="f-nav-link">GitHub</span></a></li>
+            <li><a href="https://www.linkedin.com/in/miguelgarcia210"><span class="f-nav-link">LinkedIn</span></a></li>
+            <li><a href=""><span class="f-nav-link">E-mail</span></a></li>
         </ul>
     </div>
-    <span class="footer-copyright">MIGUEL GARCIA <span class="f-copyright-stamp">&copy2019</span></span>
+    <span class="footer-copyright">MIGUEL GARCIA <span class="f-copyright-stamp">&copy2020</span></span>
 </footer>
 
 <script src="js/jquery-2.2.4.js"></script>
-<script src=js/pwebsite.js></script>
+<script src="js/header.js"></script>
+<script src=js/index.js></script>
 </body>
 </html>

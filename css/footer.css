@@ -1,0 +1,93 @@
+/* === FOOTER === */
+footer {
+    grid-area: 3 / 1 / 4 / 2;
+    background: #252934;
+    min-height: 150px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    grid-template-rows: auto;
+}
+
+footer h3 {
+    margin-bottom: 0;
+}
+
+
+.footer-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.f-menu-list {
+    list-style: none;
+    padding: 0;
+    line-height: 16pt;
+}
+
+.footer-network {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    grid-area: 1 / 3 / 2 / 4;
+
+}
+
+.f-network-list {
+    list-style: none;
+    padding: 0;
+    line-height: 16pt;
+}
+
+.f-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.f-content-title {
+    border-bottom: 2px solid #04C2C9;
+    border-radius: 2px;
+}
+
+.f-nav-link {
+    font-size: 9pt;
+    color: #ffffff;
+    /*padding: 0 1em;*/
+    opacity: .8;
+    transition: opacity .5s;
+    cursor: pointer;
+}
+
+.f-nav-link:hover {
+    opacity: 1;
+}
+
+/*.f-checkpoint-bar {*/
+/*    height: 2px;*/
+/*    width: 50px;*/
+/*    background: #04C2C9;*/
+/*    border-radius: 25px;*/
+/*    margin-left: 25%;*/
+/*    margin-right: 25%;*/
+/*    margin-top: 2px;*/
+/*}*/
+
+/* --- COPYRIGHT --- */
+
+.footer-copyright {
+    grid-area: 2 / 2 / 3 / 4;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 10pt;
+    color: #8F9AA7;
+    text-align: center;
+}
+
+.f-copyright-stamp {
+    color: #E1236E;
+}
