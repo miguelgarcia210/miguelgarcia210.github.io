@@ -54,6 +54,14 @@ footer h3 {
     border-radius: 2px;
 }
 
+/*a:link.f-nav-link {*/
+/*    color: #ffffff;*/
+/*}*/
+
+/*a:visited.f-nav-link {*/
+/*    color: #ffffff;*/
+/*}*/
+
 .f-nav-link {
     font-size: 9pt;
     color: #ffffff;
