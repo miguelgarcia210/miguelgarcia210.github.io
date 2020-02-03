@@ -187,11 +187,11 @@ main {
     z-index: 1;
 }
 
-.home-splash-button:hover {
-    background: #04C2C9;
-    border-color: #04C2C9;
-    z-index: 1;
-}
+/*.home-splash-button:hover {*/
+/*    background: #04C2C9;*/
+/*    border-color: #04C2C9;*/
+/*    z-index: 1;*/
+/*}*/
 
 /* --- ABOUT SECTION --- */
 .home-about {
@@ -588,6 +588,12 @@ img[alt="git logo"] {
     /* === MAIN === */
     .card {
         width: 50em;
+    }
+     /*--- SPLASH SCREEN SECTION --- */
+    .home-splash-button:hover {
+        background: #04C2C9;
+        border-color: #04C2C9;
+        z-index: 1;
     }
 
     /* --- ABOUT SECTION --- */

@@ -42,6 +42,14 @@ header a {
 
 }
 /* ===== LINKS ===== */
+a:link.nav-link {
+    color: #ffffff;
+}
+
+a:visited.nav-link {
+    color: #ffffff;
+}
+
 .nav-link {
     font-size: 1.4em;
     color: #ffffff;
