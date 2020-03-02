@@ -1,11 +1,11 @@
 /* === MAIN === */
-.jumbotron {
+.page-header {
     background-color: #252934;
     width: 100vw;
     height: auto;
 }
 
-.jumbotron h1 {
+.page-header h1 {
     font-size: 2rem;
     color: #ffffff;
     text-align: center;
