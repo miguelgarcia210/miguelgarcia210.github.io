@@ -19,6 +19,8 @@
 .p-container:nth-child(n + 1) {
     margin-top: 0;
 }
+
+/* ----- project container ----- */
 .p-container {
     border: 1px solid red;
     width: 100%;
@@ -28,28 +30,77 @@
     margin: 1em 0;
 }
 
+/* ----- project content ----- */
+.p-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid grey;
+    border-radius: 1em;
+    box-shadow: 0 0 10px 0 rgba(50, 50, 50, 0.73);
+    background-color: #ffffff;
+}
+
+/* ----- project image ----- */
+.p-image {
+    grid-area: 1 / 1 / 2 / 3;
+    width: 100%;
+    height: auto;
+}
+
+/* ----- project title -----*/
 .p-title {
+    grid-area: 2 / 1 / 3 / 3;
     text-align: center;
     font-size: 1.5rem;
 }
 
 h2.p-title {
-    margin: 0;
+    margin: .5em 0;
 }
 
-.p-content {
-    margin: 1rem;
-    padding: 1rem;
-    border: 1px solid grey;
-}
-
-.p-image {
-    width: 100%;
-    height: auto;
+/* ----- project description container ----- */
+.p-desc-cont {
+    grid-area: 3 / 1 / 4 / 3;
 }
 
 .description {
     font-size: 10pt;
+}
+
+.extended-description {
+    display: none;
+}
+
+/* ----- read more button ----- */
+.read-more-btn {
+    grid-area: 4 / 1 / 5 / 2;
+    border: 1px solid red;
+    border-radius: 1em;
+    align-self: center;
+    width: calc(100% - 25%);
+    justify-self: center;
+}
+
+/* ----- project language list ----- */
+.p-lang-list {
+    grid-area: 4 / 2 / 5 / 3;
+    display: flex;
+    overflow-x: scroll;
+    margin: 0 1em;
+    background-color: white;
+}
+
+.p-lang-logo {
+    width: 2em;
+    height: auto;
+    margin: 0 0.5em;
+}
+
+img[alt="MySQL"].p-lang-logo {
+    width: 5em;
 }
 
 

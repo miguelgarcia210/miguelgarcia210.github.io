@@ -1,8 +1,15 @@
 "use strict";
 
-$('.read-more-btn').click(function (event) {
-    event.preventDefault();
-    // $(this).prev().children().children("span").toggle();
-    $(this).prev().children("span").toggle();
-    console.log($(this).prev().children().children("span"));
+$('.read-more-btn').click(function (e) {
+    e.preventDefault();
+
+    let extDesc = $(this).parent().children(".p-desc-cont").children().children("span.extended-description");
+    extDesc.toggle();
+
+    if (extDesc.is(':visible')) {
+        $(this).text("Show Less");
+    } else {
+        $(this).text("Read More");
+    }
+
 });
