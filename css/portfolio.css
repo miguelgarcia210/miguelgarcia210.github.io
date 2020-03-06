@@ -91,6 +91,7 @@ h2.p-title {
     overflow-x: scroll;
     margin: 0 1em;
     background-color: white;
+    height: 3em;
 }
 
 .p-lang-logo {
