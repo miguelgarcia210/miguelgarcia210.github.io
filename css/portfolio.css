@@ -20,6 +20,10 @@
     margin-top: 0;
 }
 
+.p-container:last-child {
+    margin-bottom: 0;
+}
+
 /* ----- project container ----- */
 .p-container {
     border: 1px solid red;
