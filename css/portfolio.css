@@ -26,9 +26,9 @@
 
 /* ----- project container ----- */
 .p-container {
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     width: 100%;
-    background-color: pink;
+    /*background-color: pink;*/
     /* set a min height */
     min-height: 3rem;
     margin: 1em 0;
@@ -95,6 +95,7 @@ h2.p-title {
     background-color: rgba(58, 62, 72, 1);
     color: #ffffff;
     font-size: 10pt;
+    padding: .25em 0;
 }
 
 /* ----- project language list ----- */
