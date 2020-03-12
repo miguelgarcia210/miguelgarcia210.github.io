@@ -87,13 +87,14 @@ h2.p-title {
 /* ----- read more button ----- */
 .read-more-btn {
     grid-area: 4 / 1 / 5 / 2;
-    border: 1px solid red;
+    border: 2px solid #04C2C9;
     border-radius: 1em;
     align-self: center;
     width: calc(100% - 25%);
     justify-self: center;
-    background-color: #d8d8e0;
-    color: #04C2C9;
+    background-color: rgba(58, 62, 72, 1);
+    color: #ffffff;
+    font-size: 10pt;
 }
 
 /* ----- project language list ----- */
@@ -149,6 +150,7 @@ img[alt="MySQL"].p-lang-logo {
 
     .read-more-btn {
         grid-area: 4 / 1 / 5 / 2;
+        width: calc(100% - 50%);
     }
 
     .p-lang-list {
