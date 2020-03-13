@@ -97,6 +97,18 @@ h2.p-title {
     font-size: 10pt;
     padding: .25em 0;
 }
+.read-more-btn:focus {
+    /*
+        It is BAD practice to remove the outline of an element as it regresses accessibility.
+        Read into it here -->
+        If done the BEST PRACTICE is to implement self created outline indicators for accessible users.
+    */
+    outline: 0;
+    /* ACCESSIBLE INDICATOR */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, .5);
+    border-style: outset;
+    cursor: pointer;
+}
 
 /* ----- project language list ----- */
 .p-lang-list {
