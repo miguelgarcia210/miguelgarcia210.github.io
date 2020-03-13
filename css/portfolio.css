@@ -97,7 +97,12 @@ h2.p-title {
     font-size: 10pt;
     padding: .25em 0;
 }
-.read-more-btn:focus {
+
+.read-more-btn::-moz-focus-inner {
+    border: 0;
+}
+
+.read-more-btn:focus, .read-more-btn:active {
     /*
         It is BAD practice to remove the outline of an element as it regresses accessibility.
         Read into it here -->
