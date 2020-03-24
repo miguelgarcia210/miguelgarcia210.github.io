@@ -78,6 +78,8 @@ h2.p-title {
 
 .description {
     font-size: 10pt;
+    /* Better readability */
+    line-height: 1.375rem;
 }
 
 .extended-description {
@@ -115,9 +117,17 @@ h2.p-title {
     cursor: pointer;
 }
 
+/* ----- project language container ----- */
+.p-lang-cont {
+    grid-area: 4 / 2 / 5 / 3;
+    overflow: hidden;
+    justify-items: center;
+    display: flex;
+    justify-content: center;
+}
 /* ----- project language list ----- */
 .p-lang-list {
-    grid-area: 4 / 2 / 5 / 3;
+    /*grid-area: 4 / 2 / 5 / 3;*/
     display: flex;
     overflow-x: scroll;
     margin: 0 1em;
@@ -175,7 +185,7 @@ img[alt="MySQL"].p-lang-logo {
         width: calc(100% - 50%);
     }
 
-    .p-lang-list {
+    .p-lang-cont {
         grid-area: 4 / 2 / 5 / 3;
     }
 
@@ -193,10 +203,22 @@ img[alt="MySQL"].p-lang-logo {
 
 /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
+    .description {
+        font-size: 10pt;
+    }
 }
 
 /*Large devices (desktops, 992px and up)*/
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+    .p-desc-cont {
+        display: flex;
+        justify-content: center;
+    }
+
+    .description {
+        width: 80%;
+    }
+}
 
 /*Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {}

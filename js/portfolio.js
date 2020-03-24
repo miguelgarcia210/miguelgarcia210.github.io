@@ -5,6 +5,7 @@ $('.read-more-btn').click(function (e) {
 
     let extDesc = $(this).parent().children(".p-desc-cont").children().children("span.extended-description");
     extDesc.toggle();
+    // let myDesc = $(this).parent().children(".p-desc-cont").children().children("span");
 
     if (extDesc.is(':visible')) {
         $(this).text("Show Less");
