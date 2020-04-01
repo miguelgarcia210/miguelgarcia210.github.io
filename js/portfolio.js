@@ -45,7 +45,7 @@ $('.read-more-btn').click(function (e) {
     }
 });
 
-// ==========   Project images directory & project name   ==========
+// ===============   Project images directory & project name   ===============
 let projectsArray = [];
 
 function addProject(directoryLocation, projectName) { // easily add directory name & project name
@@ -55,18 +55,19 @@ function addProject(directoryLocation, projectName) { // easily add directory na
     };
     projectsArray.push(project);
 }
+
 addProject("01_weather_map_api", "weatherMapProject");
 addProject("02_movie_project", "movieProject");
 addProject("03_texas_adlister", "texasAdlister");
 addProject("04_etps", "etps");
 
-// ==========   Project images directory & project name   ==========
-// function getProjectImages(directoryLocation) {
-function getProjectImages() {
-    let source = `https://cors-anywhere.herokuapp.com/https://github.com/miguelgarcia210/miguelgarcia210.github.io/tree/master/images`;
+// ---------------   AJAX REQUEST   ---------------
+function getProjectImages(project) {
+    let source = `https://cors-anywhere.herokuapp.com/https://github.com/miguelgarcia210/miguelgarcia210.github.io/tree/master/images/projects/${project.directory}`;
     $.ajax({
         url: source,
-        projectName : "helloThere" // pass variable to $.ajax().done()
+        projectName: project.name, // pass variable to $.ajax().done()
+        projectDirectory: project.directory
     })
         .done(onProjectImageSuccess)
         .fail(onProjectImageFail)
@@ -74,19 +75,27 @@ function getProjectImages() {
 }
 
 function onProjectImageSuccess(data, status, jqXhr) {
-    let projectImages = [];
-    // let projectObj = {};
-    // projectObj.images = [];
-    // projectObj.projectName = "something";
-    // console.log(jqXhr);
-    console.log(this.projectName);
+    // create project object to hold project name & project image names
+    let projectObj = {};
+    projectObj.name = this.projectName; // carries passed variable to this to allow for use at this stage
+    projectObj.directory = this.projectDirectory;
+    projectObj.images = [];
+
+    /*
+    data response, find matching criteria for images. If found slice string after last '/' character to retrieve image name only.
+    *these image names are the images located in the dedicated project image directory.
+    add names to projectObj.images array for future manipulation
+    */
     $(data).find("a").attr("href", function (i, val) {
         if (val.match(/\.(jpe?g|png|gif|svg)$/)) {
             let a = val.slice(val.lastIndexOf('/') + 1);
-            projectImages.push(a);
+            projectObj.images.push(a);
         }
     });
-    return console.log(projectImages);
+
+    produceImages(projectObj).forEach(function (image, index, array) {
+        $("body").append(image);
+    })
 }
 
 function onProjectImageFail(jqXhr, status, error) {
@@ -96,26 +105,35 @@ function onProjectImageFail(jqXhr, status, error) {
 function alwaysProjectImage() {
 }
 
-getProjectImages();
+// ---------------   AJAX REQUEST   ---------------
 
+/*
+    renderImage() -> renders string literals (image names) into html elements
+    produceImages() -> production line for rendering images & storing into collection
+    generatedImages() -> final html img element for all retrieved images
+ */
+function produceImages(projectObj) {
+    let generatedImages = [];
 
+    projectObj.images.forEach(function (name, index, array) {
+        generatedImages.push(renderImage(index, name, projectObj.name, projectObj.directory));
+    });
 
-// ----- INITIAL AJAX REQUEST -----
-// function retrieveImages() {
-//     let projectImages = [];
-//     let imagePath = "https://cors-anywhere.herokuapp.com/https://github.com/miguelgarcia210/miguelgarcia210.github.io/tree/master/images";
-//     $.ajax({
-//         url: imagePath,
-//         success: function (data) {
-//             $(data).find("a").attr("href", function (i, val) {
-//                 if (val.match(/\.(jpe?g|png|gif|svg)$/)) {
-//                     let a = val.slice(val.lastIndexOf('/') + 1);
-//                     projectImages.push(a);
-//                     // $("body").append("<img src='"+ "images/" + a + "'>");
-//                 }
-//             });
-//         }
-//     });
-//
-//     return projectImages;
-// }
+    return generatedImages;
+}
+
+function renderImage(imageNumb, imageName, projectName, projectDirectory) {
+    let content = `<img` + ` `;
+    content += `id=${projectName}Img-${imageNumb}` + ` `;
+    content += `src=\"images/projects/${projectDirectory}/${imageName}\"` + ` `;
+    content += `alt=\"${imageName}` + ` `;
+    content += `class=\"project-img\"`;
+    content += `>`;
+
+    return content;
+}
+
+projectsArray.forEach(function (project, index, array) {
+    getProjectImages(project);
+});
+// ===============   Project images directory & project name   ===============
