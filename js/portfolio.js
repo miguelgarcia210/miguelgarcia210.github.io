@@ -1,5 +1,8 @@
 "use strict";
 
+let projects = $('.p-container');
+
+// ==========   Project read-more-btn *MAGIC*   ==========
 $('.read-more-btn').click(function (e) {
     e.preventDefault();
 
@@ -9,7 +12,7 @@ $('.read-more-btn').click(function (e) {
 
     extDesc.slideToggle({ //jQuery slideToggle options
         duration: 'slow',
-        start: function(){ // do something when animation begins
+        start: function () { // do something when animation begins
             dynamicReadMoreBtn();
             scrollToProjectTopPosition(extDescState());
         },
@@ -41,3 +44,78 @@ $('.read-more-btn').click(function (e) {
         }
     }
 });
+
+// ==========   Project images directory & project name   ==========
+let projectsArray = [];
+
+function addProject(directoryLocation, projectName) { // easily add directory name & project name
+    let project = {
+        directory: directoryLocation,
+        name: projectName
+    };
+    projectsArray.push(project);
+}
+addProject("01_weather_map_api", "weatherMapProject");
+addProject("02_movie_project", "movieProject");
+addProject("03_texas_adlister", "texasAdlister");
+addProject("04_etps", "etps");
+
+// ==========   Project images directory & project name   ==========
+// function getProjectImages(directoryLocation) {
+function getProjectImages() {
+    let source = `https://cors-anywhere.herokuapp.com/https://github.com/miguelgarcia210/miguelgarcia210.github.io/tree/master/images`;
+    $.ajax({
+        url: source,
+        projectName : "helloThere" // pass variable to $.ajax().done()
+    })
+        .done(onProjectImageSuccess)
+        .fail(onProjectImageFail)
+        .always(alwaysProjectImage);
+}
+
+function onProjectImageSuccess(data, status, jqXhr) {
+    let projectImages = [];
+    // let projectObj = {};
+    // projectObj.images = [];
+    // projectObj.projectName = "something";
+    // console.log(jqXhr);
+    console.log(this.projectName);
+    $(data).find("a").attr("href", function (i, val) {
+        if (val.match(/\.(jpe?g|png|gif|svg)$/)) {
+            let a = val.slice(val.lastIndexOf('/') + 1);
+            projectImages.push(a);
+        }
+    });
+    return console.log(projectImages);
+}
+
+function onProjectImageFail(jqXhr, status, error) {
+    alert(status + ": unable to load project(s) images");
+}
+
+function alwaysProjectImage() {
+}
+
+getProjectImages();
+
+
+
+// ----- INITIAL AJAX REQUEST -----
+// function retrieveImages() {
+//     let projectImages = [];
+//     let imagePath = "https://cors-anywhere.herokuapp.com/https://github.com/miguelgarcia210/miguelgarcia210.github.io/tree/master/images";
+//     $.ajax({
+//         url: imagePath,
+//         success: function (data) {
+//             $(data).find("a").attr("href", function (i, val) {
+//                 if (val.match(/\.(jpe?g|png|gif|svg)$/)) {
+//                     let a = val.slice(val.lastIndexOf('/') + 1);
+//                     projectImages.push(a);
+//                     // $("body").append("<img src='"+ "images/" + a + "'>");
+//                 }
+//             });
+//         }
+//     });
+//
+//     return projectImages;
+// }
