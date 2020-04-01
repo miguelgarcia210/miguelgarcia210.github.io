@@ -56,6 +56,10 @@ function addProject(directoryLocation, projectName) { // easily add directory na
     projectsArray.push(project);
 }
 
+// TODO: READY TO ADD A NEW PROJECT?
+//  Create a new directory under images/projects/ for all your dedicated projects images
+//      format (##_new_project_name)
+//  Afterwards, simply use the addProject() and input the corresponding parameter information. DONE!
 addProject("01_weather_map_api", "weatherMapProject");
 addProject("02_movie_project", "movieProject");
 addProject("03_texas_adlister", "texasAdlister");
@@ -132,8 +136,8 @@ function renderImage(imageNumb, imageName, projectName, projectDirectory) {
 
     return content;
 }
-
-projectsArray.forEach(function (project, index, array) {
-    getProjectImages(project);
-});
+// TODO : UNCOMMENT BELOW WHEN READY
+// projectsArray.forEach(function (project, index, array) {
+//     getProjectImages(project);
+// });
 // ===============   Project images directory & project name   ===============
