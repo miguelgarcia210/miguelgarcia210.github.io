@@ -61,12 +61,11 @@ addProject("03_texas_adlister", "texasAdlister");
 addProject("04_etps", "etps");
 
 // ==========   Project images directory & project name   ==========
-// function getProjectImages(directoryLocation) {
-function getProjectImages() {
-    let source = `https://cors-anywhere.herokuapp.com/https://github.com/miguelgarcia210/miguelgarcia210.github.io/tree/master/images`;
+function getProjectImages(project) {
+    let source = `https://cors-anywhere.herokuapp.com/https://github.com/miguelgarcia210/miguelgarcia210.github.io/tree/master/images/projects/${project.directory}`;
     $.ajax({
         url: source,
-        projectName : "helloThere" // pass variable to $.ajax().done()
+        projectName : project.name // pass variable to $.ajax().done()
     })
         .done(onProjectImageSuccess)
         .fail(onProjectImageFail)
@@ -97,25 +96,3 @@ function alwaysProjectImage() {
 }
 
 getProjectImages();
-
-
-
-// ----- INITIAL AJAX REQUEST -----
-// function retrieveImages() {
-//     let projectImages = [];
-//     let imagePath = "https://cors-anywhere.herokuapp.com/https://github.com/miguelgarcia210/miguelgarcia210.github.io/tree/master/images";
-//     $.ajax({
-//         url: imagePath,
-//         success: function (data) {
-//             $(data).find("a").attr("href", function (i, val) {
-//                 if (val.match(/\.(jpe?g|png|gif|svg)$/)) {
-//                     let a = val.slice(val.lastIndexOf('/') + 1);
-//                     projectImages.push(a);
-//                     // $("body").append("<img src='"+ "images/" + a + "'>");
-//                 }
-//             });
-//         }
-//     });
-//
-//     return projectImages;
-// }
