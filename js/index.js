@@ -1,6 +1,10 @@
 // (function () {
 "use strict";
 
+$(document).ready(function () {
+    setInterval('swapImages()', 8000);
+});
+
 function swapImages() {
     var firstImg = $('.pillar-icon img:nth-child(1)');
     var secondImg = $('.pillar-icon img:nth-child(2)');
@@ -27,8 +31,4 @@ function swapImages() {
 
     }
 }
-
-$(document).ready(function () {
-    setInterval('swapImages()', 8000);
-});
 // }) ();
