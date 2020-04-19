@@ -1,0 +1,162 @@
+/*!* ===== PAPER BACKGROUND ===== *!*/
+/* Google font */
+/*@import url('https://fonts.googleapis.com/css?family=Dancing+Script');*/
+/*body {*/
+/*    background-color: rgba(0,0,0,0.1);*/
+/*}*/
+
+/*!* styling paper *!*/
+/*#paper {*/
+/*    width: calc(100vw - 20%);*/
+/*    height: 100%;*/
+/*    position: relative;*/
+/*    margin: 20px auto;*/
+/*    padding-top: 40px;*/
+/*    padding-bottom: 40px;*/
+/*    background-color: white;*/
+/*    box-shadow: 0px 0px 5px 0px #888;*/
+/*}*/
+
+/*!* styling red vertical line *!*/
+/*#paper::before {*/
+/*    content: '';*/
+/*    width: 2px;*/
+/*    height: 100%;*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 40px;*/
+/*    background-color: rgba(255,0,0,0.6);*/
+/*}*/
+
+/*!* styling blue horizontal lines *!*/
+/*#pattern {*/
+/*    height: 100%;*/
+/*    background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);*/
+/*}*/
+
+/*!* styling text content *!*/
+/*#content {*/
+/*    padding-top: 6px;*/
+/*    padding-left: 56px;*/
+/*    padding-right: 16px;*/
+/*    line-height: 25px;*/
+/*    font-family: 'Dancing Script', cursive;*/
+/*    font-size: 19px;*/
+/*    letter-spacing: 1px;*/
+/*    word-spacing: 5px;*/
+/*}*/
+
+/* ===== PAGE HEADER SECTION ===== */
+.page-header {
+    background-color: #252934;
+    width: 100vw;
+    height: auto;
+}
+
+.page-header > h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #ffffff;
+    margin: 0;
+    padding: 1rem;
+}
+
+/* ===== ABOUT SECTION ===== */
+.hidden {
+    display: none;
+}
+
+.about-section {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 1em;
+}
+
+/* --- about container --- */
+.p-about-container {
+    background-color: #ffffff;
+    padding: 1em;
+    border-radius: 1em;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-row-gap: 1em;
+}
+
+.p-about-desc {
+    margin: 0;
+    font-size: 10pt;
+    line-height: 1.375rem;
+    /*grid-area: 1 / 1 / 2 / 2;*/
+}
+
+.text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 7; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+/*
+margin-bottom: 0.78125rem;
+margin-top: 0;
+font-family: nyt-imperial,georgia,'times new roman',times,serif;
+font-size: 1.125rem; // not used
+line-height: 1.5625rem; // not used
+margin-left: 20px; // maybe
+margin-right: 20px; // maybe
+width: calc(100% - 40px); // no reason for just yet
+max-width: 600px; // not useful at this point
+*/
+
+/* --- read more button --- */
+.read-more-btn {
+    /*grid-area: 2 / 1 / 3 / 2;*/
+    border: 2px solid #04C2C9;
+    border-radius: 1em;
+    align-self: center;
+    width: calc(100% - 50%);
+    justify-self: center;
+    background-color: rgba(58, 62, 72, 1);
+    color: #ffffff;
+    font-size: 10pt;
+    padding: .25em 0;
+}
+
+.read-more-btn::-moz-focus-inner {
+    border: 0;
+}
+
+.read-more-btn:focus, .read-more-btn:active {
+    /*
+        It is BAD practice to remove the outline of an element as it regresses accessibility.
+        Read into it here -->
+        If done the BEST PRACTICE is to implement self created outline indicators for accessible users.
+    */
+    outline: 0;
+    /* ACCESSIBLE INDICATOR */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, .5);
+    border-style: outset;
+    cursor: pointer;
+}
+
+/* ===== PROFILE SECTION ===== */
+.profile-photo {
+    width: 180px;
+    height: auto;
+    border-radius: 1em;
+}
+
+/*X-Small devices (landscape phones, 567px and up)*/
+@media (min-width: 567px) {}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {}
