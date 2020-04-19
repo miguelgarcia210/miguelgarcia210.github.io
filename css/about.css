@@ -89,7 +89,7 @@
     /*grid-area: 1 / 1 / 2 / 2;*/
 }
 
-.text {
+.clamp {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
