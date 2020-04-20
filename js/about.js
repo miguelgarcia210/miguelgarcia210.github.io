@@ -49,3 +49,13 @@ $('.read-more-btn').click(function (e) {
         }
     }
 });
+
+/*
+    ===== PROFILE BACKGROUND IMAGE PRELOADER =====
+    -> this is done to prevent image from loading incompletely
+ */
+function preloader() {
+    let loadingImage = new Image();
+    loadingImage.src = "images/aboutMiguel/backgrounds/rocketBackground.gif";
+}
+
