@@ -9,6 +9,7 @@ $('.read-more-btn').click(function (e) {
     body.slideToggle({ //jQuery slideToggle options
         duration: 'slow',
         start: function () { // do something when animation begins
+            ellipsisToggle();
             dynamicReadMoreBtn();
             scrollToProjectTopPosition(bodyDescState());
         },
@@ -17,6 +18,14 @@ $('.read-more-btn').click(function (e) {
 
     function bodyDescState() {
         return displayState !== "none" // if visible then ->
+    }
+
+    function ellipsisToggle() {
+        if (bodyDescState()) {
+            intro.addClass("clamp");
+        } else {
+            intro.removeClass("clamp");
+        }
     }
 
     function dynamicReadMoreBtn() {
