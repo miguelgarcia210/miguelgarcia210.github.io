@@ -56,6 +56,6 @@ $('.read-more-btn').click(function (e) {
  */
 function preloader() {
     let loadingImage = new Image();
-    loadingImage.src = "images/aboutMiguel/backgrounds/rocketBackground.gif";
+    loadingImage.src = "images/aboutMiguel/backgrounds/gifs/rocketBackground.gif";
 }
 
