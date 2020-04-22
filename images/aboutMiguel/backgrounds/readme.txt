@@ -10,3 +10,6 @@ https://moz.com/blog/how-to-improve-site-performance-using-gifs
 
 more information on how to 'make .gif's load faster' below:
 https://www.cnet.com/how-to/how-to-make-your-gifs-load-fast-every-time/
+
+Convert to GIF file extension if file is not truly a .gif extension
+https://image.online-convert.com/convert-to-gif
