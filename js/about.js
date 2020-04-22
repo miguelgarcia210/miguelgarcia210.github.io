@@ -9,7 +9,11 @@ $('.read-more-btn').click(function (e) {
     let thisBtn = $(this);
 
     body.slideToggle({ //jQuery slideToggle options
-        duration: 'slow',
+        /*
+Durations are given in milliseconds; higher values indicate slower animations, not faster ones.
+The strings 'fast' and 'slow' can be supplied to indicate durations of 200 and 600 milliseconds, respectively.
+ */
+        duration: 200,
         start: function () { // do something when animation begins
             ellipsisToggle();
             dynamicReadMoreBtn();
@@ -45,9 +49,13 @@ $('.read-more-btn').click(function (e) {
             let aboutContainer = thisBtn.parent().parent();
             let containerPosition = aboutContainer.offset().top + (-51);
 
+            /*
+            Durations are given in milliseconds; higher values indicate slower animations, not faster ones.
+            The strings 'fast' and 'slow' can be supplied to indicate durations of 200 and 600 milliseconds, respectively.
+             */
             $('html, body').animate({
                 scrollTop: containerPosition
-            }, 550);
+            }, 200);
         }
     }
 });
