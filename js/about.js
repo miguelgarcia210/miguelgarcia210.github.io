@@ -2,8 +2,10 @@ $('.read-more-btn').click(function (e) {
     e.preventDefault();
 
     let intro = $(".p-about-desc:first"); // select first paragraph
-    let body = $(".p-about-desc:not(:first)"); // select all subsequent paragraphs after first
-    let displayState = $(".p-about-desc:eq(1)").css('display'); // css:'display' state
+    // let body = $(".p-about-desc:not(:first)"); // select all subsequent paragraphs after first
+    let body = $(".read-more-content"); // select all subsequent paragraphs after first
+    // let displayState = $(".p-about-desc:eq(1)").css('display'); // css:'display' state
+    let displayState = body.css('display'); // css:'display' state
     let thisBtn = $(this);
 
     body.slideToggle({ //jQuery slideToggle options
