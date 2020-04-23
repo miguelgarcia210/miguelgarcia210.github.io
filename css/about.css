@@ -235,6 +235,10 @@
         margin: 1em 0;
     }
 
+    .p-about-desc {
+        font-size: 8pt;
+    }
+
     /* ===== PROFILE SECTION ===== */
     .profile-container {
         width: 50em;
@@ -273,6 +277,10 @@
     .about-header span:before,
     .about-header span:after {
         width: 100%;
+    }
+
+    .p-about-desc {
+        font-size: 10pt;
     }
 
     /* --- about container --- */
@@ -350,7 +358,8 @@
     }
 
     .p-about-container {
-        margin: 0 5em;
+        padding: 1em 8em 2em;
+        margin: 0 8em;
     }
 
     /* --- read more button --- */
