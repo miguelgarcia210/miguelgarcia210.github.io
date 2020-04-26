@@ -15,22 +15,33 @@
 
 /* ===== SKILL METER SECTION ===== */
 .skill-meter-section {
-    margin-top: 1rem;
+    width: calc(100vw - 1em);
+    /* shorthand: top sides bottom */
+    padding: 1em 1em 2em;
+    margin: 1rem auto 0;
+    background-color: #d2d2d2;
+    border-radius: 1em;
+}
+
+.skill-bar:first-child {
+    margin-top: 0;
+}
+
+.skill-bar:last-child {
+    margin-bottom: 0;
 }
 
 .skill-bar {
     position: relative;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
-    height: 28px;
+    margin: 2em 0;
+    height: 2em;
+    z-index: 1;
     background: #eeeeee;
-    /*-moz-border-radius: 25px;*/
-    /*-webkit-border-radius: 25px;*/
-    /*border-radius: 25px;*/
-    /*padding: 10px;*/
-    /*box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);*/
-    border: 1px solid red;
+    border-bottom-right-radius: .5em;
+    border-top-right-radius: .5em;
+    /*border: 1px solid red;*/
 }
 
 .skill-meter {
@@ -38,24 +49,102 @@
     top: 0;
     left: 0;
     height: 100%;
-    width: 90%;
-    border: 1px solid blue;
-    transition: 1.1s 0.2s width ease-in-out;
-    background-color: #00a1a7;
-    opacity: 1;
+    z-index: 2;
+    background: rgba(0,174,255,1);
+    background: linear-gradient(90deg, rgba(231,219,16,0.9962359943977591) 0%, rgba(0,174,255,1) 100%);
+    /*background: linear-gradient(90deg, rgba(242,16,7,1) 0%, rgba(231,219,16,0.9962359943977591) 35%, rgba(0,174,255,1) 100%);*/
+    border-bottom-right-radius: .5em;
+    border-top-right-radius: .5em;
+    /*border: 1px solid blue;*/
 }
 
 .skill-name {
-    /*width: 110px;*/
+    position: absolute;
+    /* Calculate:
+        totalHeight - (totalHeight + (excess above 100% / 2))
+        this is done to increase height of name div and display even spacing at top and bottom
+    */
+    top: calc(125% - (125% + (25%/2)));
+    left: 0;
+    width: 8em;
+    height: 125%;
+    z-index: 3;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 8em;
-    /*font: 8pt;*/
-    border: 1px solid green;
+    color: #FFFFFF;
+    text-align: center;
+    background: lightslategray;
+    margin: 1em 0;
+    border-top-left-radius: .5em;
+    border-bottom-right-radius: .5em;
+    /*border: 1px solid green;*/
 }
 
 .skill-percentage {
-    border: 1px solid yellow;
+    display: flex;
+    align-items: center;
+    z-index: 3;
+    padding-right: .25em;
+    /*border: 1px solid yellow;*/
 }
+
+/* --- animation --- */
+@keyframes expandWidth {
+    /*
+    Starting frame (0%) width set to 0;
+    Final frame (100%) is "auto" by not explicitly defining a final frame. This allows animation to continue until actual defined width is met.
+    */
+    0% { width: 0; }
+}
+
+/* --- skills --- */
+.html {
+    width: 90%;
+    animation: expandWidth 2s;
+}
+.css {
+    width: 90%;
+    animation: expandWidth 2s;
+}
+.javascript {
+    width: 80%;
+    animation: expandWidth 2s;
+}
+.jquery {
+    width: 80%;
+    animation: expandWidth 2s;
+}
+.bootstrap {
+    width: 85%;
+    animation: expandWidth 2s;
+}
+.java {
+    width: 65%;
+    animation: expandWidth 2s;
+}
+.mysql {
+    width: 65%;
+    animation: expandWidth 2s;
+}
+.spring {
+    width: 65%;
+    animation: expandWidth 2s;
+}
+
+/* ===== SECTION ===== */
+
+/*X-Small devices (landscape phones, 567px and up)*/
+@media (min-width: 567px) {}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {}
