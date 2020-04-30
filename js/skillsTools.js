@@ -14,6 +14,14 @@ $("#equip-header").click(function () {
     collapseExpand(table);
 })
 
+$("#skills-header").click(function () {
+    let skillsBars = $("#skills-bar-container");
+    if (skillsBars.css("display") === "none") {
+        progress();
+    }
+    collapseExpand(skillsBars);
+})
+
 function collapseExpand(elem) {
     // elem
     //     .stop(true, true)
