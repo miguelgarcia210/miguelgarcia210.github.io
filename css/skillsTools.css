@@ -305,7 +305,19 @@
     animation: expandWidth 2s;
 }
 
-/* ===== SECTION ===== */
+/* ===== TOOL SECTION ===== */
+/* --- tool-header --- */
+.tool-container {
+    margin: 1em 1em;
+}
+
+.tool-header > .styled-heading {
+    color: #E1236E;
+}
+
+.tool-header > .bottom-divider > span {
+    background: #E1236E;
+}
 
 /*X-Small devices (landscape phones, 567px and up)*/
 @media (min-width: 567px) {}
