@@ -6,19 +6,26 @@ $(function () {
 
 $("#v-lang-header").click(function () {
     let table =  $("#v-lang-table-container");
-    // table
+    collapseExpand(table);
+});
+
+$("#equip-header").click(function () {
+    let table = $("#equip-table");
+    collapseExpand(table);
+})
+
+function collapseExpand(elem) {
+    // elem
     //     .stop(true, true)
     //     .animate({
     //         height:"toggle",
     //         opacity:"toggle"
     //     },200);
-    table.slideToggle({
+    elem.slideToggle({
         duration: 400,
         easing: "swing"
-    });
-});
-
-
+    })
+}
 
 function progress () {
     let meters = $(".skill-meter");
