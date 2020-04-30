@@ -172,15 +172,30 @@
 }
 
 /* ===== SKILL METER SECTION ===== */
-.skill-meter-section {
-    width: calc(100vw - 1em);
-    /* shorthand: top sides bottom */
+.skill-meter-section {}
+.skills-container {
+    margin: 1em 1em;
+}
+/* --- skill header --- */
+.skills-header > .styled-heading {
+    color: #4bce3f;
+}
+
+.skills-header > .bottom-divider > span {
+    background: #4bce3f;
+}
+
+/* --- skills bar container --- */
+.skills-bar-container {
+    width: 95%;
+    margin: 0 auto;
+    /*!* shorthand: top sides bottom *!*/
     padding: 1em 1em 2em;
-    margin: 1rem auto 0;
     background-color: #d2d2d2;
     border-radius: 1em;
 }
 
+/* --- skill bars --- */
 .skill-bar:first-child {
     margin-top: 0;
 }
