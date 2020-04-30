@@ -13,6 +13,129 @@
     padding: 1rem;
 }
 
+/* ===== STYLED HEADING ===== */
+.styled-heading{
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.5em;
+    letter-spacing: 0.08em;
+    font-weight: 300;
+    text-shadow: 0 1px 1px #FFFFFF;
+    text-transform: uppercase;
+    color: #FF6600;
+}
+
+.bottom-divider {
+    border-bottom: 1px solid lightgray;
+    background-color: #DADADA;
+    height: 1px;
+    margin: 0.5em 0 1.5em;
+}
+
+.bottom-divider > span {
+    display: block;
+    width: 50px;
+    height: 1px;
+    background: red;
+}
+
+/* ===== VERBAL LANGUAGE SECTION ===== */
+/* --- v-lang-header --- */
+.v-lang-container {
+    margin: 1em 1em;
+}
+
+.v-lang-header > .styled-heading {
+    color: #FF6600;
+}
+
+.v-lang-header > .bottom-divider > span {
+    background: #FF6600;
+}
+
+/* --- v-lang-table-container --- */
+.v-lang-table-container {
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.75);
+    border: 1px solid lightgray;
+    max-height: 12em;
+}
+.v-lang-table-header {
+    border: 1px solid black;
+    background: rgba(255,102,0,0.9);
+    font-size: 8pt;
+}
+
+.v-lang-table-row {
+    border-bottom: 1px dotted grey;
+}
+
+.v-lang-table-row:last-child {
+    border-bottom: none;
+}
+
+
+.table-row {
+    display: grid;
+    /*grid-template-columns: repeat(auto-fill, 33%);*/
+    grid-template-columns: 40% 20% 40%;
+    grid-template-rows: none;
+    justify-items: center;
+    align-items: center;
+}
+
+.table-cell {
+    height: 100%;
+    width: 100%;
+    padding: 1em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.table-cell:first-child {
+    border-right: 1px solid lightgrey;
+}
+
+.table-cell:last-child {
+    border-left: 1px solid lightgrey;
+}
+
+.table-header {
+    color: #FFFFFF;
+    padding: .5em 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.table-header:first-child {
+    border-right: 1px solid white;
+}
+
+.table-header:last-child {
+    border-left: 1px solid white;
+}
+.table-language {}
+.table-level {}
+.table-name {}
+
+
+/* ===== EQUIPMENT SECTION ===== */
+/* --- equip-header --- */
+.equip-container {
+    margin: 1em 1em;
+}
+
+.equip-header > .styled-heading {
+    color: #1589FF;
+}
+
+.equip-header > .bottom-divider > span {
+    background: #1589FF;
+}
+
 /* ===== SKILL METER SECTION ===== */
 .skill-meter-section {
     width: calc(100vw - 1em);
@@ -141,7 +264,12 @@
 @media (min-width: 576px) {}
 
 /*Medium devices (tablets, 768px and up)*/
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+    .v-lang-container {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
 
 /*Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {}
