@@ -38,6 +38,11 @@
     background: red;
 }
 
+/* ===== INNER SECTION LAST DIV MARGIN SPACING ===== */
+.safe-area > div > div:last-child {
+    margin-bottom: 4em;
+}
+
 /* ===== VERBAL LANGUAGE SECTION ===== */
 /* --- v-lang-header --- */
 .v-lang-container {
@@ -58,12 +63,15 @@
     margin: 0 auto;
     box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.75);
     border: 1px solid lightgray;
-    max-height: 12em;
+    /*max-height: 12em;*/
+    border-radius: 1em;
 }
 .v-lang-table-header {
-    border: 1px solid black;
     background: rgba(255,102,0,0.9);
     font-size: 8pt;
+    border: 1px solid black;
+    border-top-left-radius: .85em;
+    border-top-right-radius: .85em;
 }
 
 .v-lang-table-row {
@@ -140,8 +148,10 @@
 .equip-table {
     width: 90%;
     margin: 0 auto;
+    overflow: hidden;
     border: 1px solid lightgrey;
-    box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.75);
+    border-radius: 1em;
+    box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.75);
 }
 .equip-table-row {
     display: grid;
@@ -150,6 +160,15 @@
     /*justify-content: center;*/
     /*align-items: center;*/
 }
+
+.equip-table-row:first-child > .equip-category {
+    border-top-left-radius: 1em;
+}
+
+.equip-table-row:last-child > .equip-category {
+    border-bottom-left-radius: 1em;
+}
+
 .equip-category {
     width: 100%;
     height: 100%;
@@ -214,7 +233,8 @@
     background: #eeeeee;
     border-bottom-right-radius: .5em;
     border-top-right-radius: .5em;
-    /*border: 1px solid red;*/
+    border-top-left-radius: .5em;
+    border: 1px solid #FFFFFF;
 }
 
 .skill-meter {
@@ -228,6 +248,7 @@
     /*background: linear-gradient(90deg, rgba(242,16,7,1) 0%, rgba(231,219,16,0.9962359943977591) 35%, rgba(0,174,255,1) 100%);*/
     border-bottom-right-radius: .5em;
     border-top-right-radius: .5em;
+    border-top-left-radius: .5em;
     /*border: 1px solid blue;*/
 }
 
@@ -238,7 +259,7 @@
         this is done to increase height of name div and display even spacing at top and bottom
     */
     top: calc(125% - (125% + (25%/2)));
-    left: 0;
+    left: -1px;
     width: 8em;
     height: 125%;
     z-index: 3;
@@ -333,6 +354,16 @@
     }
 
     .equip-container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .skills-container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .tool-container {
         width: 90%;
         margin: 0 auto;
     }
