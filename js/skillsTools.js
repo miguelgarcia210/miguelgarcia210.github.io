@@ -22,6 +22,11 @@ $("#skills-header").click(function () {
     collapseExpand(skillsBars);
 })
 
+$("#tool-header").click(function () {
+    let toolCatalog = $("#tool-catalog");
+    collapseExpand(toolCatalog);
+})
+
 function collapseExpand(elem) {
     // elem
     //     .stop(true, true)
