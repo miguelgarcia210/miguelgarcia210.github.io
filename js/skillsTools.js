@@ -59,8 +59,9 @@
     $("#tool-header").click(function () {
         let toolCatalog = $("#tool-catalog");
         if (toolCatalog.css("display") === "none") {
-            // animateTools();
-            animationToolFunc();
+            setTimeout(function () { // accounts for expansion load time to avoid "animation lag" on first tool-item
+                animationToolFunc();
+            },400); // timeout equals collapseExpand().duration
         } else {
             clearInterval(toolAnimationID);
         }
