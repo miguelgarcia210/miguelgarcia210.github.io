@@ -407,6 +407,7 @@
     max-width: 7em;
     border-radius: 1em;
     box-shadow: 0 10px 5px rgba(0, 0, 0, 0.6);
+    /*animation: toolScaleUp 1s infinite;*/
 }
 
 .catalog-list > li > img {
@@ -417,6 +418,35 @@
 .catalog-list > li > img[alt="git logo"] {
     /*padding: 25% 0;*/
     height: auto;
+}
+
+@keyframes toolScaleUp {
+    0% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+
+    50% {
+        transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+}
+
+.animateTool {
+    animation: toolScaleUp;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+}
+
+.tool-item:hover {
+    transition: all .5s ease-in-out;
+    transform: scale(1.1);
 }
 
 /* --- shelves-container --- */
