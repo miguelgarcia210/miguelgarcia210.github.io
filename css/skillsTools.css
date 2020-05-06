@@ -368,9 +368,9 @@
 
 .tool-catalog-height-container {
     /*
-    60 : catalog-list > li : rows(2) * li:height(60)
-    30 : total for shelf-plank and shelf-molding : rows(2) * shelf:height(30)
-    8 : accounting borders : rows(2) * li rows(2) + rows(2) * shelves(2)
+    60 : .tool-item : rows(2) in view * li:height(60)
+    30 : total for shelf-plank and shelf-molding : rows(2) in view * shelf:height(30)
+    8 : accounting borders : borders are 1px, (rows(2) * li:height(60)) + (rows(2) * shelf:height(30)) + ((rows(2) + shelvesCount(2)) * borderTotal:Top&Bottom(2px))
     */
     height: calc((60px * 2) + (30px * 2) + (2px * 4));
 }
@@ -396,7 +396,8 @@
 
 }
 
-.catalog-list > li {
+/*.catalog-list > li {*/
+.tool-item {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -410,12 +411,14 @@
     /*animation: toolScaleUp 1s infinite;*/
 }
 
-.catalog-list > li > img {
+/*.catalog-list > li > img {*/
+.tool-item > img {
     height: 50px;
     width: 50px;
 }
 
-.catalog-list > li > img[alt="git logo"] {
+/*.catalog-list > li > img[alt="git logo"] {*/
+.tool-item > img[alt="git logo"] {
     /*padding: 25% 0;*/
     height: auto;
 }
