@@ -275,8 +275,14 @@ h3.styled-heading {
     margin: 0 1em;
 }
 
+.skills-head-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 /* --- skill header --- */
-.skills-header > .styled-heading {
+.skills-header > div > .styled-heading {
     color: #4bce3f;
 }
 
