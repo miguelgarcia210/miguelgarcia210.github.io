@@ -1,3 +1,8 @@
+/* ===== SECTION SPACING ===== */
+main section:last-child {
+    margin-bottom: 1.5em;
+}
+
 /* ===== PAGE HEADER SECTION ===== */
 .page-header {
     background-color: #252934;
@@ -13,6 +18,52 @@
     padding: 1rem;
 }
 
+/* ===== EXPAND/COLLAPSE HEADER ICON ===== */
+.exp-coll-head-cont {
+    margin-right: 2em;
+}
+.exp-coll-button {
+    position: relative;
+    width: 10px;
+    height: 10px;
+}
+
+.exp-coll-button::before, .exp-coll-button::after {
+    content: "";
+    position: absolute;
+    background: lightslategray;
+    transition: transform 0.25s ease-out;
+}
+
+/* --- vertical bar --- */
+.exp-coll-button::before {
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    margin-left: -1px;
+}
+
+/* --- horizontal bar --- */
+.exp-coll-button::after {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    margin-top: -1px;
+}
+
+.opened :before {
+    transition: all 0.5s ease-in-out;
+    transform: rotate(90deg);
+}
+
+.opened :after {
+    transition: all 0.5s ease-in-out;
+    transform: rotate(180deg);
+    opacity: 0;
+}
+
 /* ===== STYLED HEADING ===== */
 .styled-heading {
     /*font-family: 'Roboto Slab', serif;*/
@@ -24,11 +75,16 @@
     color: #FF6600;
 }
 
+h3.styled-heading {
+    margin: 1em 0;
+}
+
 .bottom-divider {
     border-bottom: 1px solid lightgray;
     background-color: #DADADA;
     height: 1px;
-    margin: 0.5em 0 1.5em;
+    /*margin: 0.5em 0 1.5em;*/
+    /*margin: 0 0 1.5em;*/
 }
 
 .bottom-divider > span {
@@ -36,6 +92,11 @@
     width: 50px;
     height: 1px;
     background: red;
+}
+
+/* ===== INNER SECTION SECOND DIV MARGIN SPACING ===== */
+.safe-area > div > div:nth-child(n+2) {
+    margin-top: 1.5em;
 }
 
 /* ===== INNER SECTION LAST DIV MARGIN SPACING ===== */
@@ -46,15 +107,21 @@
 /* ===== VERBAL LANGUAGE SECTION ===== */
 /* --- v-lang-header --- */
 .v-lang-container {
-    margin: 1em 1em;
+    margin: 0 1em;
 }
 
-.v-lang-header > .styled-heading {
+.v-lang-header > div > .styled-heading {
     color: #FF6600;
 }
 
 .v-lang-header > .bottom-divider > span {
     background: #FF6600;
+}
+
+.v-lang-head-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* --- v-lang-table-container --- */
@@ -140,15 +207,21 @@
 /* ===== EQUIPMENT SECTION ===== */
 /* --- equip-header --- */
 .equip-container {
-    margin: 1em 1em;
+    margin: 0 1em;
 }
 
-.equip-header > .styled-heading {
+.equip-header > div > .styled-heading {
     color: #1589FF;
 }
 
 .equip-header > .bottom-divider > span {
     background: #1589FF;
+}
+
+.equip-head-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* --- equip table --- */
@@ -204,11 +277,17 @@
 }
 
 .skills-container {
-    margin: 1em 1em;
+    margin: 0 1em;
+}
+
+.skills-head-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* --- skill header --- */
-.skills-header > .styled-heading {
+.skills-header > div > .styled-heading {
     color: #4bce3f;
 }
 
@@ -350,10 +429,16 @@
 /* ===== TOOL SECTION ===== */
 /* --- tool-header --- */
 .tool-container {
-    margin: 1em 1em;
+    margin: 0 1em;
 }
 
-.tool-header > .styled-heading {
+.tools-head-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tool-header > div > .styled-heading {
     color: #E1236E;
 }
 
@@ -368,9 +453,9 @@
 
 .tool-catalog-height-container {
     /*
-    60 : catalog-list > li : rows(2) * li:height(60)
-    30 : total for shelf-plank and shelf-molding : rows(2) * shelf:height(30)
-    8 : accounting borders : rows(2) * li rows(2) + rows(2) * shelves(2)
+    60 : .tool-item : rows(2) in view * li:height(60)
+    30 : total for shelf-plank and shelf-molding : rows(2) in view * shelf:height(30)
+    8 : accounting borders : borders are 1px, (rows(2) * li:height(60)) + (rows(2) * shelf:height(30)) + ((rows(2) + shelvesCount(2)) * borderTotal:Top&Bottom(2px))
     */
     height: calc((60px * 2) + (30px * 2) + (2px * 4));
 }
@@ -396,7 +481,8 @@
 
 }
 
-.catalog-list > li {
+/*.catalog-list > li {*/
+.tool-item {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -410,12 +496,14 @@
     /*animation: toolScaleUp 1s infinite;*/
 }
 
-.catalog-list > li > img {
+/*.catalog-list > li > img {*/
+.tool-item > img {
     height: 50px;
     width: 50px;
 }
 
-.catalog-list > li > img[alt="git logo"] {
+/*.catalog-list > li > img[alt="git logo"] {*/
+.tool-item > img[alt="git logo"] {
     /*padding: 25% 0;*/
     height: auto;
 }

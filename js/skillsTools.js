@@ -19,17 +19,22 @@
             easing: "swing"
         })
     }
+    function collapseExpandIndicator(elem) {
+        elem.find('.exp-coll-head-cont').toggleClass('opened');
+    }
 
 // LANGUAGE SECTION
     $("#v-lang-header").click(function () {
         let table = $("#v-lang-table-container");
         collapseExpand(table);
+        collapseExpandIndicator($(this));
     });
 
 // EQUIPMENT SECTION
     $("#equip-header").click(function () {
         let table = $("#equip-table");
         collapseExpand(table);
+        collapseExpandIndicator($(this));
     })
 
 // SKILLS SECTION
@@ -39,6 +44,7 @@
             progressPercentage();
         }
         collapseExpand(skillsBars);
+        collapseExpandIndicator($(this));
     })
 
     function progressPercentage() {
@@ -66,6 +72,7 @@
             clearInterval(toolAnimationID);
         }
         collapseExpand(toolCatalog);
+        collapseExpandIndicator($(this));
     })
 // --- animations ---
     let toolAnimationID; // holds intervalID found in animationToolFunc()
