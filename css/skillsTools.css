@@ -13,6 +13,52 @@
     padding: 1rem;
 }
 
+/* ===== EXPAND/COLLAPSE HEADER ICON ===== */
+.exp-coll-head-cont {
+    margin-right: 2em;
+}
+.exp-coll-button {
+    position: relative;
+    width: 10px;
+    height: 10px;
+}
+
+.exp-coll-button::before, .exp-coll-button::after {
+    content: "";
+    position: absolute;
+    background: lightslategray;
+    transition: transform 0.25s ease-out;
+}
+
+/* --- vertical bar --- */
+.exp-coll-button::before {
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    margin-left: -1px;
+}
+
+/* --- horizontal bar --- */
+.exp-coll-button::after {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    margin-top: -1px;
+}
+
+.opened :before {
+    transition: all 0.5s ease-in-out;
+    transform: rotate(90deg);
+}
+
+.opened :after {
+    transition: all 0.5s ease-in-out;
+    transform: rotate(180deg);
+    opacity: 0;
+}
+
 /* ===== STYLED HEADING ===== */
 .styled-heading {
     /*font-family: 'Roboto Slab', serif;*/
@@ -24,11 +70,16 @@
     color: #FF6600;
 }
 
+h3.styled-heading {
+    margin: 1em 0;
+}
+
 .bottom-divider {
     border-bottom: 1px solid lightgray;
     background-color: #DADADA;
     height: 1px;
-    margin: 0.5em 0 1.5em;
+    /*margin: 0.5em 0 1.5em;*/
+    /*margin: 0 0 1.5em;*/
 }
 
 .bottom-divider > span {
@@ -36,6 +87,11 @@
     width: 50px;
     height: 1px;
     background: red;
+}
+
+/* ===== INNER SECTION SECOND DIV MARGIN SPACING ===== */
+.safe-area > div > div:nth-child(n+2) {
+    margin-top: 1.5em;
 }
 
 /* ===== INNER SECTION LAST DIV MARGIN SPACING ===== */
@@ -46,15 +102,21 @@
 /* ===== VERBAL LANGUAGE SECTION ===== */
 /* --- v-lang-header --- */
 .v-lang-container {
-    margin: 1em 1em;
+    margin: 0 1em;
 }
 
-.v-lang-header > .styled-heading {
+.v-lang-header > div > .styled-heading {
     color: #FF6600;
 }
 
 .v-lang-header > .bottom-divider > span {
     background: #FF6600;
+}
+
+.v-lang-head-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* --- v-lang-table-container --- */
@@ -140,15 +202,21 @@
 /* ===== EQUIPMENT SECTION ===== */
 /* --- equip-header --- */
 .equip-container {
-    margin: 1em 1em;
+    margin: 0 1em;
 }
 
-.equip-header > .styled-heading {
+.equip-header > div > .styled-heading {
     color: #1589FF;
 }
 
 .equip-header > .bottom-divider > span {
     background: #1589FF;
+}
+
+.equip-head-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* --- equip table --- */
@@ -204,7 +272,7 @@
 }
 
 .skills-container {
-    margin: 1em 1em;
+    margin: 0 1em;
 }
 
 /* --- skill header --- */
@@ -350,7 +418,7 @@
 /* ===== TOOL SECTION ===== */
 /* --- tool-header --- */
 .tool-container {
-    margin: 1em 1em;
+    margin: 0 1em;
 }
 
 .tool-header > .styled-heading {
