@@ -1,3 +1,8 @@
+/* ===== SECTION SPACING ===== */
+main section:last-child {
+    margin-bottom: 1.5em;
+}
+
 /* ===== PAGE HEADER SECTION ===== */
 .page-header {
     background-color: #252934;
@@ -427,7 +432,13 @@ h3.styled-heading {
     margin: 0 1em;
 }
 
-.tool-header > .styled-heading {
+.tools-head-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tool-header > div > .styled-heading {
     color: #E1236E;
 }
 
