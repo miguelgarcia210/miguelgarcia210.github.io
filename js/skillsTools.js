@@ -2,8 +2,10 @@
     "use strict";
 
     $(function () {
-        animateMeters();
-        progressPercentage();
+        clickSaver($("#skills-header"), skillsHeaderClick, 2000); // secures initial click until animation completion
+        // animateMeters();
+        // progressPercentage();
+        animationSkillsFunc();
         animationToolFunc();
     });
 
@@ -66,8 +68,9 @@
         let skillsBars = $("#skills-bar-container");
         if (displayState(skillsBars)) {
             clickSaver($(this), skillsHeaderClick, 2000); // rebinds 'click' event, 2000: animateMeter completionTime
-            animateMeters();
-            progressPercentage();
+            // animateMeters();
+            // progressPercentage();
+            animationSkillsFunc();
         } else {
             clickSaver($(this), skillsHeaderClick, 400); // rebinds 'click' event, 400: slideToggle completionTime
         }
@@ -99,6 +102,11 @@
                 }
             });
         });
+    }
+
+    function animationSkillsFunc() {
+        animateMeters();
+        progressPercentage();
     }
 
 // TOOLS SECTION
