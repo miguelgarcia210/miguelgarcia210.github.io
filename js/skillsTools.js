@@ -27,7 +27,7 @@
 
     function clickSaver(element, bindFunctionName, delayTime) { // pass clicked element
         element.off(); // unbind click
-        setTimeout(function() {
+        setTimeout(function () {
             element.on('click', bindFunctionName)
         }, delayTime)
     }
@@ -39,7 +39,7 @@
 // LANGUAGE SECTION
     $("#v-lang-header").on('click', langHeaderClick);
 
-    function langHeaderClick (event) {
+    function langHeaderClick(event) {
         event.stopPropagation();
         clickSaver($(this), langHeaderClick, 400) // rebinds 'click' event, 400: slideToggle completionTime
         let table = $("#v-lang-table-container");
@@ -65,7 +65,7 @@
         event.stopPropagation();
         let skillsBars = $("#skills-bar-container");
         if (displayState(skillsBars)) {
-            clickSaver($(this),skillsHeaderClick, 2000); // rebinds 'click' event, 2000: animateMeter completionTime
+            clickSaver($(this), skillsHeaderClick, 2000); // rebinds 'click' event, 2000: animateMeter completionTime
             animateMeters();
             progressPercentage();
         } else {
@@ -118,6 +118,7 @@
         collapseExpand(toolCatalog);
         collapseExpandIndicator($(this));
     }
+
 // --- animations ---
     let toolAnimationID; // holds intervalID found in animationToolFunc()
 
