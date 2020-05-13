@@ -48,11 +48,22 @@
     }
 
 // EQUIPMENT SECTION
-    $("#equip-header").click(function () {
+    $("#equip-header").on('click', equipHeaderClick);
+
+    function equipHeaderClick(event) {
+        event.stopPropagation();
+        $(this).off(); // unbind click
         let table = $("#equip-table");
         collapseExpand(table);
         collapseExpandIndicator($(this));
-    })
+        clickSaver($(this), equipHeaderClick, 400) // rebinds 'click' event, 400: slideToggle completionTime
+
+    }
+    // $("#equip-header").click(function () {
+    //     let table = $("#equip-table");
+    //     collapseExpand(table);
+    //     collapseExpandIndicator($(this));
+    // })
 
 // SKILLS SECTION
 //     $("#skills-header").click(function (e) {
