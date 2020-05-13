@@ -79,7 +79,7 @@
         let skillsBars = $("#skills-bar-container");
         // let skillsHeader = $("#skills-header");
         $(this).off('click'); // unbind click
-        if (skillsBars.css("display") === "none") {
+        if (displayState(skillsBars)) {
             animateMeters();
             progressPercentage();
             clickSaver($(this),skillsHeaderClick, 2000); // rebinds 'click' event, 2000: animateMeter completionTime
