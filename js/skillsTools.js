@@ -77,7 +77,6 @@
     function skillsHeaderClick(event) {
         event.stopPropagation();
         let skillsBars = $("#skills-bar-container");
-        // let skillsHeader = $("#skills-header");
         $(this).off('click'); // unbind click
         if (displayState(skillsBars)) {
             animateMeters();
