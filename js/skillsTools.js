@@ -26,6 +26,7 @@
     }
 
     function clickSaver(element, bindFunctionName, delayTime) { // pass clicked element
+        element.off(); // unbind click
         setTimeout(function() {
             element.on('click', bindFunctionName)
         }, delayTime)
@@ -40,11 +41,10 @@
 
     function langHeaderClick (event) {
         event.stopPropagation();
-        $(this).off(); // unbind click
+        clickSaver($(this), langHeaderClick, 400) // rebinds 'click' event, 400: slideToggle completionTime
         let table = $("#v-lang-table-container");
         collapseExpand(table);
         collapseExpandIndicator($(this));
-        clickSaver($(this), langHeaderClick, 400) // rebinds 'click' event, 400: slideToggle completionTime
     }
 
 // EQUIPMENT SECTION
@@ -52,12 +52,10 @@
 
     function equipHeaderClick(event) {
         event.stopPropagation();
-        $(this).off(); // unbind click
+        clickSaver($(this), equipHeaderClick, 400) // rebinds 'click' event, 400: slideToggle completionTime
         let table = $("#equip-table");
         collapseExpand(table);
         collapseExpandIndicator($(this));
-        clickSaver($(this), equipHeaderClick, 400) // rebinds 'click' event, 400: slideToggle completionTime
-
     }
 
 // SKILLS SECTION
@@ -66,11 +64,10 @@
     function skillsHeaderClick(event) {
         event.stopPropagation();
         let skillsBars = $("#skills-bar-container");
-        $(this).off('click'); // unbind click
         if (displayState(skillsBars)) {
+            clickSaver($(this),skillsHeaderClick, 2000); // rebinds 'click' event, 2000: animateMeter completionTime
             animateMeters();
             progressPercentage();
-            clickSaver($(this),skillsHeaderClick, 2000); // rebinds 'click' event, 2000: animateMeter completionTime
         } else {
             clickSaver($(this), skillsHeaderClick, 400); // rebinds 'click' event, 400: slideToggle completionTime
         }
@@ -109,7 +106,7 @@
 
     function toolHeaderClick(event) {
         event.stopPropagation();
-        $(this).off();
+        clickSaver($(this), toolHeaderClick, 400); // rebinds 'click' event, 400: slideToggle completionTime
         let toolCatalog = $("#tool-catalog");
         if (displayState(toolCatalog)) {
             setTimeout(function () { // accounts for expansion load time to avoid "animation lag" on first tool-item
@@ -120,7 +117,6 @@
         }
         collapseExpand(toolCatalog);
         collapseExpandIndicator($(this));
-        clickSaver($(this), toolHeaderClick, 400);
     }
 // --- animations ---
     let toolAnimationID; // holds intervalID found in animationToolFunc()
