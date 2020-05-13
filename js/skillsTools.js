@@ -25,12 +25,33 @@
         elem.find('.exp-coll-head-cont').toggleClass('opened');
     }
 
+    function clickSaver(element, bindFunctionName, delayTime) { // pass clicked element
+        setTimeout(function() {
+            element.on('click', bindFunctionName)
+        }, delayTime)
+    }
+
+    function displayState(element) {
+        return element.css("display") === "none";
+    }
+
 // LANGUAGE SECTION
-    $("#v-lang-header").click(function () {
+    $("#v-lang-header").on('click', langHeaderClick);
+
+    function langHeaderClick (event) {
+        event.stopPropagation();
+        $(this).off(); // unbind click
         let table = $("#v-lang-table-container");
         collapseExpand(table);
         collapseExpandIndicator($(this));
-    });
+        clickSaver($(this), langHeaderClick, 400) // rebinds 'click' event, 400: slideToggle completionTime
+    }
+
+    // $("#v-lang-header").click(function () {
+    //     let table = $("#v-lang-table-container");
+    //     collapseExpand(table);
+    //     collapseExpandIndicator($(this));
+    // });
 
 // EQUIPMENT SECTION
     $("#equip-header").click(function () {
@@ -51,7 +72,9 @@
 //         collapseExpandIndicator($(this));
 //     })
 
-    let skillsHeaderClick = function (event) {
+    $("#skills-header").on('click', skillsHeaderClick);
+
+    function skillsHeaderClick(event) {
         event.stopPropagation();
         let skillsBars = $("#skills-bar-container");
         let skillsHeader = $("#skills-header");
@@ -59,30 +82,13 @@
         if (skillsBars.css("display") === "none") {
             animateMeters();
             progressPercentage();
-            // setTimeout(function () {
-            //     skillsHeader.on('click', skillsHeaderClick); //rebind again
-            // }, 2000) // animateMeter completion time
             clickSaver(skillsHeader,skillsHeaderClick, 2000); // rebinds 'click' event, 2000: animateMeter completionTime
         } else {
-            // setTimeout(function () {
-            //     skillsHeader.on('click', skillsHeaderClick); //rebind again
-            // }, 400) // slideToggle animation completion time
             clickSaver(skillsHeader, skillsHeaderClick, 400); // rebinds 'click' event, 400: slideToggle completionTime
         }
         collapseExpand(skillsBars);
         collapseExpandIndicator(skillsHeader);
     }
-
-    function clickSaver(element, functionName, delayTime) { // pass clicked element
-        setTimeout(function() {
-            element.on('click', functionName)
-        }, delayTime)
-    }
-
-    $("#skills-header").on('click', skillsHeaderClick);
-
-
-    // $("#skills-header").on('click', myFunc); //rebind again
 
     function animateMeters() {
         let skillMeters = $(".skill-meter");
