@@ -2,6 +2,7 @@
     "use strict";
 
     $(function () {
+        animateMeters();
         progressPercentage();
         animationToolFunc();
     });
@@ -19,6 +20,7 @@
             easing: "swing"
         })
     }
+
     function collapseExpandIndicator(elem) {
         elem.find('.exp-coll-head-cont').toggleClass('opened');
     }
@@ -38,14 +40,61 @@
     })
 
 // SKILLS SECTION
-    $("#skills-header").click(function () {
+//     $("#skills-header").click(function (e) {
+//         e.preventDefault();
+//         let skillsBars = $("#skills-bar-container");
+//         if (skillsBars.css("display") === "none") {
+//             animateMeters();
+//             progressPercentage();
+//         }
+//         collapseExpand(skillsBars);
+//         collapseExpandIndicator($(this));
+//     })
+
+    let skillsHeaderClick = function (event) {
+        event.stopPropagation();
         let skillsBars = $("#skills-bar-container");
+        let skillsHeader = $("#skills-header");
+        skillsHeader.off('click'); // unbind click
         if (skillsBars.css("display") === "none") {
+            animateMeters();
             progressPercentage();
+            // setTimeout(function () {
+            //     skillsHeader.on('click', skillsHeaderClick); //rebind again
+            // }, 2000) // animateMeter completion time
+            clickSaver(skillsHeader,skillsHeaderClick, 2000); // rebinds 'click' event, 2000: animateMeter completionTime
+        } else {
+            // setTimeout(function () {
+            //     skillsHeader.on('click', skillsHeaderClick); //rebind again
+            // }, 400) // slideToggle animation completion time
+            clickSaver(skillsHeader, skillsHeaderClick, 400); // rebinds 'click' event, 400: slideToggle completionTime
         }
         collapseExpand(skillsBars);
-        collapseExpandIndicator($(this));
-    })
+        collapseExpandIndicator(skillsHeader);
+    }
+
+    function clickSaver(element, functionName, delayTime) { // pass clicked element
+        setTimeout(function() {
+            element.on('click', functionName)
+        }, delayTime)
+    }
+
+    $("#skills-header").on('click', skillsHeaderClick);
+
+
+    // $("#skills-header").on('click', myFunc); //rebind again
+
+    function animateMeters() {
+        let skillMeters = $(".skill-meter");
+        skillMeters.toggleClass("animateMeter")
+        skillMeters.each(function (index, value) {
+            let element = $(this);
+            element.addClass("animateMeter");
+            setTimeout(function () {
+                element.removeClass("animateMeter")
+            }, 2500);
+        })
+    }
 
     function progressPercentage() {
         let meters = $(".skill-meter");
@@ -67,7 +116,7 @@
         if (toolCatalog.css("display") === "none") {
             setTimeout(function () { // accounts for expansion load time to avoid "animation lag" on first tool-item
                 animationToolFunc();
-            },400); // timeout equals collapseExpand().duration
+            }, 400); // timeout equals collapseExpand().duration
         } else {
             clearInterval(toolAnimationID);
         }
