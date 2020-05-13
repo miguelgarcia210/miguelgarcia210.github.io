@@ -22,6 +22,44 @@ main section:last-child {
 .exp-coll-head-cont {
     margin-right: 2em;
 }
+
+.exp-coll-butt-cont {
+    width: 14px;
+    height: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes disabledIndicator {
+    0%{
+        background-color: rgba(255,0,0,0.1);
+    }
+    40%{
+        background-color: rgba(255,0,0,1);
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+@-webkit-keyframes disabledIndicator {
+    0%{
+        background-color: rgba(255,0,0,0.1);
+    }
+    40%{
+        background-color: rgba(255,0,0,1);
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+.animateIndicator {
+    border-radius: 50%;
+    animation-name: disabledIndicator;
+    animation-iteration-count: 1;
+}
+
 .exp-coll-button {
     position: relative;
     width: 10px;
