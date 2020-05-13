@@ -25,6 +25,16 @@
         elem.find('.exp-coll-head-cont').toggleClass('opened');
     }
 
+    function disableIndicator(element, delayTime, animationDuration) {
+        let indicatorCont = element.find('.exp-coll-butt-cont');
+        indicatorCont.addClass("animateIndicator");
+        indicatorCont.css("animation-duration", animationDuration);
+        setTimeout(function () {
+            indicatorCont.removeClass("animateIndicator");
+            indicatorCont.css("animation-duration", "");
+        }, delayTime)
+    }
+
     function clickSaver(element, bindFunctionName, delayTime) { // pass clicked element
         element.off(); // unbind click
         setTimeout(function () {
@@ -45,6 +55,7 @@
         let table = $("#v-lang-table-container");
         collapseExpand(table);
         collapseExpandIndicator($(this));
+        disableIndicator($(this), 400, "400ms");
     }
 
 // EQUIPMENT SECTION
@@ -56,6 +67,7 @@
         let table = $("#equip-table");
         collapseExpand(table);
         collapseExpandIndicator($(this));
+        disableIndicator($(this), 400, "400ms");
     }
 
 // SKILLS SECTION
@@ -66,9 +78,11 @@
         let skillsBars = $("#skills-bar-container");
         if (displayState(skillsBars)) {
             clickSaver($(this), skillsHeaderClick, 2000); // rebinds 'click' event, 2000: animateMeter completionTime
+            disableIndicator($(this), 2000, "2000ms");
             animationSkillsFunc();
         } else {
             clickSaver($(this), skillsHeaderClick, 400); // rebinds 'click' event, 400: slideToggle completionTime
+            disableIndicator($(this), 400, "400ms");
         }
         collapseExpand(skillsBars);
         collapseExpandIndicator($(this));
@@ -121,6 +135,7 @@
         }
         collapseExpand(toolCatalog);
         collapseExpandIndicator($(this));
+        disableIndicator($(this), 400, "400ms");
     }
 
 // --- animations ---
