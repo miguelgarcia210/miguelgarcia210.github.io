@@ -116,9 +116,13 @@
     }
 
 // TOOLS SECTION
-    $("#tool-header").click(function () {
+    $("#tool-header").on('click', toolHeaderClick);
+
+    function toolHeaderClick(event) {
+        event.stopPropagation();
+        $(this).off();
         let toolCatalog = $("#tool-catalog");
-        if (toolCatalog.css("display") === "none") {
+        if (displayState(toolCatalog)) {
             setTimeout(function () { // accounts for expansion load time to avoid "animation lag" on first tool-item
                 animationToolFunc();
             }, 400); // timeout equals collapseExpand().duration
@@ -127,7 +131,21 @@
         }
         collapseExpand(toolCatalog);
         collapseExpandIndicator($(this));
-    })
+        clickSaver($(this), toolHeaderClick, 400);
+    }
+
+    // $("#tool-header").click(function () {
+    //     let toolCatalog = $("#tool-catalog");
+    //     if (toolCatalog.css("display") === "none") {
+    //         setTimeout(function () { // accounts for expansion load time to avoid "animation lag" on first tool-item
+    //             animationToolFunc();
+    //         }, 400); // timeout equals collapseExpand().duration
+    //     } else {
+    //         clearInterval(toolAnimationID);
+    //     }
+    //     collapseExpand(toolCatalog);
+    //     collapseExpandIndicator($(this));
+    // })
 // --- animations ---
     let toolAnimationID; // holds intervalID found in animationToolFunc()
 
