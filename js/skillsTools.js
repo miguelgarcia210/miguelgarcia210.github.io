@@ -59,11 +59,6 @@
         clickSaver($(this), equipHeaderClick, 400) // rebinds 'click' event, 400: slideToggle completionTime
 
     }
-    // $("#equip-header").click(function () {
-    //     let table = $("#equip-table");
-    //     collapseExpand(table);
-    //     collapseExpandIndicator($(this));
-    // })
 
 // SKILLS SECTION
 //     $("#skills-header").click(function (e) {
