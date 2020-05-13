@@ -77,17 +77,17 @@
     function skillsHeaderClick(event) {
         event.stopPropagation();
         let skillsBars = $("#skills-bar-container");
-        let skillsHeader = $("#skills-header");
-        skillsHeader.off('click'); // unbind click
+        // let skillsHeader = $("#skills-header");
+        $(this).off('click'); // unbind click
         if (skillsBars.css("display") === "none") {
             animateMeters();
             progressPercentage();
-            clickSaver(skillsHeader,skillsHeaderClick, 2000); // rebinds 'click' event, 2000: animateMeter completionTime
+            clickSaver($(this),skillsHeaderClick, 2000); // rebinds 'click' event, 2000: animateMeter completionTime
         } else {
-            clickSaver(skillsHeader, skillsHeaderClick, 400); // rebinds 'click' event, 400: slideToggle completionTime
+            clickSaver($(this), skillsHeaderClick, 400); // rebinds 'click' event, 400: slideToggle completionTime
         }
         collapseExpand(skillsBars);
-        collapseExpandIndicator(skillsHeader);
+        collapseExpandIndicator($(this));
     }
 
     function animateMeters() {
