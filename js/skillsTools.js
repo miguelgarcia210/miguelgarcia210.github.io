@@ -61,17 +61,6 @@
     }
 
 // SKILLS SECTION
-//     $("#skills-header").click(function (e) {
-//         e.preventDefault();
-//         let skillsBars = $("#skills-bar-container");
-//         if (skillsBars.css("display") === "none") {
-//             animateMeters();
-//             progressPercentage();
-//         }
-//         collapseExpand(skillsBars);
-//         collapseExpandIndicator($(this));
-//     })
-
     $("#skills-header").on('click', skillsHeaderClick);
 
     function skillsHeaderClick(event) {
@@ -133,19 +122,6 @@
         collapseExpandIndicator($(this));
         clickSaver($(this), toolHeaderClick, 400);
     }
-
-    // $("#tool-header").click(function () {
-    //     let toolCatalog = $("#tool-catalog");
-    //     if (toolCatalog.css("display") === "none") {
-    //         setTimeout(function () { // accounts for expansion load time to avoid "animation lag" on first tool-item
-    //             animationToolFunc();
-    //         }, 400); // timeout equals collapseExpand().duration
-    //     } else {
-    //         clearInterval(toolAnimationID);
-    //     }
-    //     collapseExpand(toolCatalog);
-    //     collapseExpandIndicator($(this));
-    // })
 // --- animations ---
     let toolAnimationID; // holds intervalID found in animationToolFunc()
 
