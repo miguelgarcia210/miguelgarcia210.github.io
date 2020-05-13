@@ -47,12 +47,6 @@
         clickSaver($(this), langHeaderClick, 400) // rebinds 'click' event, 400: slideToggle completionTime
     }
 
-    // $("#v-lang-header").click(function () {
-    //     let table = $("#v-lang-table-container");
-    //     collapseExpand(table);
-    //     collapseExpandIndicator($(this));
-    // });
-
 // EQUIPMENT SECTION
     $("#equip-header").click(function () {
         let table = $("#equip-table");
