@@ -385,45 +385,58 @@ h3.styled-heading {
     }
 }
 
+@-webkit-keyframes expandWidth {
+    0% {
+        width: 0;
+    }
+}
+
+.animateMeter {
+    animation: expandWidth;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    /*animation-timing-function: ease-in-out;*/
+}
+
 /* --- skills --- */
 .html {
     width: 90%;
-    animation: expandWidth 2s;
+    /*animation: expandWidth 2s;*/
 }
 
 .css {
     width: 90%;
-    animation: expandWidth 2s;
+    /*animation: expandWidth 2s;*/
 }
 
 .javascript {
     width: 80%;
-    animation: expandWidth 2s;
+    /*animation: expandWidth 2s;*/
 }
 
 .jquery {
     width: 80%;
-    animation: expandWidth 2s;
+    /*animation: expandWidth 2s;*/
 }
 
 .bootstrap {
     width: 85%;
-    animation: expandWidth 2s;
+    /*animation: expandWidth 2s;*/
 }
 
 .java {
     width: 65%;
-    animation: expandWidth 2s;
+    /*animation: expandWidth 2s;*/
 }
 
 .mysql {
     width: 65%;
-    animation: expandWidth 2s;
+    /*animation: expandWidth 2s;*/
 }
 
 .spring {
     width: 65%;
-    animation: expandWidth 2s;
+    /*animation: expandWidth 2s;*/
 }
 
 /* ===== TOOL SECTION ===== */
