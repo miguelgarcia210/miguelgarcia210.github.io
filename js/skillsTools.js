@@ -27,11 +27,16 @@
 
     function disableIndicator(element, delayTime, animationDuration) {
         let indicatorCont = element.find('.exp-coll-butt-cont');
+        let indicatorButton = indicatorCont.children();
         indicatorCont.addClass("animateIndicator");
+        indicatorButton.addClass("animateIndicatorBack");
         indicatorCont.css("animation-duration", animationDuration);
+        indicatorButton.css("animation-duration", animationDuration);
         setTimeout(function () {
             indicatorCont.removeClass("animateIndicator");
+            indicatorButton.removeClass("animateIndicatorBack");
             indicatorCont.css("animation-duration", "");
+            indicatorButton.css("animation-duration", "");
         }, delayTime)
     }
 
