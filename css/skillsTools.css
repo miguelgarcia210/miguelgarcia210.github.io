@@ -66,6 +66,23 @@ main section:last-child {
     height: 10px;
 }
 
+@keyframes expCollButtBackground {
+    0%, 100%{
+        background-color: #FFFFFF;
+    }
+}
+@-webkit-keyframes expCollButtBackground {
+    0%{
+        background-color: #FFFFFF;
+    }
+}
+
+ .animateIndicatorBack {
+     border-radius: 50%;
+     animation-name: expCollButtBackground;
+     animation-iteration-count: 1;
+ }
+
 .exp-coll-button::before, .exp-coll-button::after {
     content: "";
     position: absolute;
