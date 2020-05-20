@@ -51,6 +51,185 @@
         return element.css("display") === "none";
     }
 
+//  MODAL SECTION
+    $(".tool-item").on('click', toolItemClick);
+
+    let toolObjects = [
+        {
+            name: "Adobe Photoshop",
+            description: "brief summary about my usage with adobe photoshop",
+            image: "images/photoshop-logo.svg"
+        },
+        {
+            name: "IntelliJ IDEA",
+            description: "brief summary about my usage with intellij",
+            image: "images/intellij-logo.svg"
+        },
+        {
+            name: "GitHub",
+            description: "brief summary about my usage with github",
+            image: "images/github-logo.svg"
+        },
+        {
+            name: "Git",
+            description: "brief summary about my usage with git",
+            image: "images/git-logo.svg"
+        },
+        {
+            name: "Sublime Text",
+            description: "brief summary about my usage with sublime text",
+            image: "images/sublime-text-logo.svg"
+        }
+        // {
+        //     name : "Adobe Photoshop",
+        //     description : "brief summary about my usage with adobe photoshop",
+        //     image : "images/photoshop-logo.svg"
+        // }
+    ]
+
+    function toolItemClick(event) {
+        event.stopPropagation();
+        let modal = $('#modal'); // modal
+        let closeBtn = $('#modal-close-button'); // close-button
+        let $this = $(this); // tool-item selected
+        let title = $this.attr("title"); // selected tool item title
+        let tools = $(".tool-item"); // all tool items
+        let scrollContainer = $("#scroll-container");
+
+        modal.find('#modal-title').html(title);
+        modal.css({
+            "display": "flex"
+        });
+        closeBtn.on('click', function () {
+            modal.css("display", "none");
+        });
+
+        scrollToTool(tools, title);
+        // // Determine index of selected tool item
+        // for (let i = 0; i < tools.length; i++) {
+        //     let card = $("#content-card-" + i);
+        //     // if (selected tool title) equals (tool item at specific index) AND HTML element exists
+        //     if (title.toLowerCase() === tools[i].attributes.title.value.toLowerCase() && card.length) {
+        //         // scroll to that tool item index
+        //         card[0].scrollIntoView({inline: 'center'});
+        //         break;
+        //     } else if (i === tools.length - 1) {
+        //         $("#content-card-0")[0].scrollIntoView({inline: 'center'});
+        //     }
+        // }
+
+        assignToolIndex(tools);
+        // Assigns index to toolObject according to html element order, then manipulate the DOM
+        // for (let i = 0; i < tools.length; i++) {
+        //     for (let j = 0; j < toolObjects.length; j++) {
+        //         if (tools[i].attributes.title.value.toLowerCase() === toolObjects[j].name.toLowerCase()) {
+        //             toolObjects[j].index = i;
+        //             break;
+        //         }
+        //     }
+        //     if (i === tools.length - 1) {
+        //         //     renderToolsDOM(renderToolContent(toolObjects))
+        //     }
+        // }
+
+        orderSyncVerify(tools);
+
+        // renderToolsDOM(renderToolContent(toolObjects), scrollContainer);
+        renderToolsDOM(renderToolContent(toolObjects), scrollContainer);
+        // console.log(renderToolContent(toolObjects));
+        // // Verifies order relations between toolObjects(JS Object) and tools(HTML ELEMENTS)
+        // for (let i = 0; i < tools.length; i++) {
+        //     if (tools[i].attributes.title.value.toLowerCase() !== toolObjects[i].name.toLowerCase()) {
+        //         // console.log(sortToolObjects());
+        //         // console.log("sorted hopefully");
+        //         break;
+        //     }
+        // }
+    }
+
+    function scrollToTool(tools, title) {
+        // Determine index of selected tool item
+        for (let i = 0; i < tools.length; i++) {
+            let card = $("#content-card-" + i);
+            // if (selected tool title) equals (tool item at specific index) AND HTML element exists
+            if (title.toLowerCase() === tools[i].attributes.title.value.toLowerCase() && card.length) {
+                // scroll to that tool item index
+                card[0].scrollIntoView({inline: 'center'});
+                break;
+            } else if (i === tools.length - 1) {
+                $("#content-card-0")[0].scrollIntoView({inline: 'center'});
+            }
+        }
+    }
+
+    function assignToolIndex(tools) {
+        // Assigns index to toolObject according to html element order, then manipulate the DOM
+        for (let i = 0; i < tools.length; i++) {
+            for (let j = 0; j < toolObjects.length; j++) {
+                if (tools[i].attributes.title.value.toLowerCase() === toolObjects[j].name.toLowerCase()) {
+                    toolObjects[j].index = i;
+                    break;
+                }
+            }
+            if (i === tools.length - 1) {
+                //     renderToolsDOM(renderToolContent(toolObjects))
+            }
+        }
+    }
+
+    function orderSyncVerify(tools) {
+        // Verifies order relations between toolObjects(JS Object) and tools(HTML ELEMENTS)
+        for (let i = 0; i < tools.length; i++) {
+            if (tools[i].attributes.title.value.toLowerCase() !== toolObjects[i].name.toLowerCase()) {
+                sortToolObjects();
+                break;
+            }
+        }
+    }
+
+    function sortToolObjects() {
+        let orderedTools = [];
+        for (let i = 0; i < toolObjects.length; i++) {
+            for (let j = 0; j < toolObjects.length; j++) {
+                if (toolObjects[j].index === i) {
+                    orderedTools.push(toolObjects[j]);
+                }
+            }
+        }
+        //.sort() method
+        // return toolObjects.sort(function(a, b) {
+        //     return a.index - b.index;
+        // });
+        // return orderedTools;
+        toolObjects = orderedTools;
+    }
+
+    function renderToolContent(toolObjs) {
+        let content = [];
+
+        $(toolObjs).each(function (index, value) {
+            // TODO determine dynamic image and summary placement
+            let add = `<div id="content-card-${index}" class="content-card">`;
+            add += `<div class="content-header">`;
+            add += `<h2 class="content-head-title">${this.name}</h2>`;
+            add += `</div>`;
+            add += `<div class="content-description">`;
+            add += `<img src="${this.image}" alt="${this.name.toLowerCase() + " logo"}" class="content-image">`;
+            add += `<p class="content-summary">${this.description}</p>`;
+            add += `</div>`;
+            add += `</div>`;
+            content.push(add);
+        });
+        return content;
+    }
+
+    function renderToolsDOM(toolsArr, element) {
+        let str = toolsArr.reduce((accumulation, currentContent) => {
+            return accumulation + currentContent;
+        }, "");
+        element.html(str);
+    }
+
 // LANGUAGE SECTION
     $("#v-lang-header").on('click', langHeaderClick);
 
