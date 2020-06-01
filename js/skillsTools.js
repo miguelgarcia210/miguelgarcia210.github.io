@@ -96,6 +96,7 @@
         let tools = $(".tool-item"); // all tool items
         let scrollContainer = $("#scroll-container");
         let contentCards;
+        let testVARIABLE;
 
         // TODO: CLEAR/RESET 'toolAnimationID
 
