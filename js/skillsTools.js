@@ -168,7 +168,7 @@
         // })
         contentCards = $(".content-card");
         // TODO: INCORPORATE 'DEBOUNCE' method to prevent calling multiple functions after scroll event
-        contentCards.on("scroll", descriptionScroll);
+        // contentCards.on("scroll", descriptionScroll);
     }
 
     function scrollToTool(tools, title) {
