@@ -55,14 +55,14 @@
     $(".tool-item").on('click', toolItemClick);
 
     let toolObjects = [
-        {
-            name: "Adobe Photoshop",
-            description: "brief summary about my usage with adobe photoshop",
-            image: "images/photoshop-logo.svg"
-        },
+        // {
+        //     name: "Adobe Photoshop",
+        //     description: "brief summary about my usage with adobe photoshop",
+        //     image: "images/photoshop-logo.svg"
+        // },
         {
             name: "IntelliJ IDEA",
-            description: "brief summary about my usage with intellij",
+            description: `&nbsp;&nbsp;&nbsp;&nbsp;IntelliJ IDEA is an integrated development environment (IDE) largely meant for Java Virtual Machine. It's intelligent coding assistance and ergonomic design make developing productive and enjoyable. IntelliJ IDEA offers a variety of features that I believe make this IDE a great utility for my developments. These features include deep intelligence, smart code completion and framework-specific assistance. This powerful IDE also includes built-in tools and supports various frameworks. Some built-in tools are build tools, version control, database tools/SQL and a decompiler. Supported frameworks include Spring, Java EE, Micronaut and more. This robust IDE allows me to develop without strain and develop projects with comfort.`,
             image: "images/intellij-logo.svg"
         },
         {
@@ -79,12 +79,12 @@
             name: "Sublime Text",
             description: "brief summary about my usage with sublime text",
             image: "images/sublime-text-logo.svg"
+        },
+        {
+            name : "Adobe Photoshop",
+            description : "brief summary about my usage with adobe photoshop",
+            image : "images/photoshop-logo.svg"
         }
-        // {
-        //     name : "Adobe Photoshop",
-        //     description : "brief summary about my usage with adobe photoshop",
-        //     image : "images/photoshop-logo.svg"
-        // }
     ]
 
     function toolItemClick(event) {
@@ -95,6 +95,9 @@
         let title = $this.attr("title"); // selected tool item title
         let tools = $(".tool-item"); // all tool items
         let scrollContainer = $("#scroll-container");
+        let contentCards = $(".content-card");
+
+        // TODO: CLEAR/RESET 'toolAnimationID
 
         modal.find('#modal-title').html(title);
         modal.css({
@@ -104,7 +107,7 @@
             modal.css("display", "none");
         });
 
-        scrollToTool(tools, title);
+        // scrollToTool(tools, title);
         // // Determine index of selected tool item
         // for (let i = 0; i < tools.length; i++) {
         //     let card = $("#content-card-" + i);
@@ -145,12 +148,33 @@
         //         break;
         //     }
         // }
+        scrollToTool(tools, title);
+        // contentCards.on("scroll", function () {
+        //     console.log("hello");
+        //     let image = $(this).find(".content-image");
+        //     if (this.scrollTop > 50) {
+        //         image.css({
+        //             "height" : "3em",
+        //             "width" : "3em",
+        //             "margin-left" : "20px"
+        //         })
+        //     } else if (this.scrollTop < 50) {
+        //         image.css({
+        //             "height" : "8em",
+        //             "width" : "8em",
+        //             "margin-left" : "0"
+        //         })
+        //     }
+        // })
+        // TODO: INCORPORATE 'DEBOUNCE' method to prevent calling multiple functions after scroll event
+        contentCards.on("scroll", descriptionScroll);
     }
 
     function scrollToTool(tools, title) {
         // Determine index of selected tool item
         for (let i = 0; i < tools.length; i++) {
-            let card = $("#content-card-" + i);
+            // let card = $("#content-card-" + i);
+            let card = $(`#content-card-${i}`);
             // if (selected tool title) equals (tool item at specific index) AND HTML element exists
             if (title.toLowerCase() === tools[i].attributes.title.value.toLowerCase() && card.length) {
                 // scroll to that tool item index
@@ -170,9 +194,6 @@
                     toolObjects[j].index = i;
                     break;
                 }
-            }
-            if (i === tools.length - 1) {
-                //     renderToolsDOM(renderToolContent(toolObjects))
             }
         }
     }
@@ -211,10 +232,13 @@
             // TODO determine dynamic image and summary placement
             let add = `<div id="content-card-${index}" class="content-card">`;
             add += `<div class="content-header">`;
-            add += `<h2 class="content-head-title">${this.name}</h2>`;
+            add += `<img src="${this.image}" alt="${this.name.toLowerCase() + " logo"}" class="content-head-image">`
+            add += `<h4 class="content-head-title">${this.name}</h4>`;
             add += `</div>`;
             add += `<div class="content-description">`;
+            add += `<div class="content-img-cont">`;
             add += `<img src="${this.image}" alt="${this.name.toLowerCase() + " logo"}" class="content-image">`;
+            add += `</div>`;
             add += `<p class="content-summary">${this.description}</p>`;
             add += `</div>`;
             add += `</div>`;
@@ -228,6 +252,30 @@
             return accumulation + currentContent;
         }, "");
         element.html(str);
+    }
+
+    function descriptionScroll() {
+        let image = $(this).find(".content-image");
+        let headerImage = $(this).find(".content-head-image");
+        if (this.scrollTop > 55) {
+            // TODO change into class addition/removal
+            image.css({
+                "height" : "5em",
+                "width" : "5em"
+                // "margin-left" : "20px"
+            });
+
+            headerImage.fadeIn("fast");
+        }
+        else if (this.scrollTop < 50) {
+            image.css({
+                "height" : "8em",
+                "width" : "8em"
+                // "margin-left" : "0"
+            });
+
+            headerImage.fadeOut("fast");
+        }
     }
 
 // LANGUAGE SECTION
