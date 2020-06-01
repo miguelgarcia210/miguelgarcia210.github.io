@@ -95,7 +95,7 @@
         let title = $this.attr("title"); // selected tool item title
         let tools = $(".tool-item"); // all tool items
         let scrollContainer = $("#scroll-container");
-        let contentCards = $(".content-card");
+        let contentCards;
 
         // TODO: CLEAR/RESET 'toolAnimationID
 
@@ -166,6 +166,7 @@
         //         })
         //     }
         // })
+        contentCards = $(".content-card");
         // TODO: INCORPORATE 'DEBOUNCE' method to prevent calling multiple functions after scroll event
         contentCards.on("scroll", descriptionScroll);
     }
